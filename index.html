@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Century International Services | Soluções Consulares e Imigração</title>
+    <title>Century | Soluções Consulares e Imigração</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
 
         :root {
             --primary: #1e3a8a;
@@ -17,32 +17,72 @@
         }
 
         body {
-            font-family: 'Open Sans', sans-serif;
+            font-family: 'Manrope', sans-serif;
             color: var(--text-main);
             scroll-behavior: smooth;
+            overflow-x: hidden;
+            background:
+                radial-gradient(circle at top left, rgba(219, 234, 254, 0.6), transparent 30%),
+                radial-gradient(circle at top right, rgba(191, 219, 254, 0.42), transparent 24%),
+                linear-gradient(180deg, #f8fbff 0%, #f8fafc 24%, #ffffff 48%, #f8fafc 100%);
         }
 
         h1, h2, h3, h4, .font-heading {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Cormorant Garamond', serif;
+            letter-spacing: -0.02em;
+        }
+
+        main {
+            padding-bottom: 7rem;
+        }
+
+        .content-section,
+        #services-anchor {
+            scroll-margin-top: 7rem;
         }
 
         .hidden-section { display: none; }
 
         .service-card {
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 1px solid #e2e8f0;
+            border: 1px solid #dbe4f1;
+            background:
+                linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(248, 250, 252, 0.96) 100%);
+            box-shadow: 0 18px 40px rgba(15, 23, 42, 0.06);
+            border-radius: 1.75rem;
+            position: relative;
         }
 
         .service-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1);
-            border-color: var(--secondary);
+            box-shadow: 0 26px 50px rgba(15, 23, 42, 0.1);
+            border-color: #93c5fd;
+        }
+
+        .service-card {
+            min-height: 100%;
+        }
+
+        .service-card::before {
+            content: "";
+            position: absolute;
+            top: 1.2rem;
+            left: 1.2rem;
+            width: 2.8rem;
+            height: 1px;
+            background: #2563eb;
+            opacity: 0.6;
         }
 
         .btn-whatsapp {
             background-color: #25D366;
             color: white;
             box-shadow: 0 4px 14px 0 rgba(37, 211, 102, 0.39);
+        }
+
+        .btn-whatsapp:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 16px 30px rgba(37, 211, 102, 0.3);
         }
 
         .video-container {
@@ -63,6 +103,450 @@
 
         .quick-link-badge {
             @apply px-4 py-2 bg-white border border-slate-200 rounded-full text-xs font-bold text-slate-600 hover:border-blue-600 hover:text-blue-600 transition cursor-pointer shadow-sm;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            letter-spacing: 0.03em;
+        }
+
+        .trust-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.85rem 1rem;
+            background: #fff;
+            border: 1px solid #dbeafe;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #0f172a;
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+        }
+
+        .trust-badge i {
+            color: var(--secondary);
+        }
+
+        .trust-badge:hover {
+            transform: translateY(-3px);
+            border-color: #93c5fd;
+            box-shadow: 0 18px 35px rgba(37, 99, 235, 0.1);
+        }
+
+        .service-menu-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.7rem 1rem;
+            border-radius: 9999px;
+            background: #eff6ff;
+            color: #1d4ed8;
+            font-size: 0.8rem;
+            font-weight: 700;
+            transition: all 0.25s ease;
+        }
+
+        .service-menu-pill:hover {
+            background: #1d4ed8;
+            color: #fff;
+            transform: translateY(-1px);
+        }
+
+        .lang-btn-active {
+            background: #ffffff;
+            color: #1e3a8a;
+            box-shadow: 0 6px 14px rgba(15, 23, 42, 0.18);
+        }
+
+        .accent-panel {
+            background:
+                radial-gradient(circle at top left, rgba(37, 99, 235, 0.16), transparent 38%),
+                linear-gradient(135deg, #eff6ff 0%, #ffffff 55%, #f8fafc 100%);
+        }
+
+        .section-panel {
+            position: relative;
+            overflow: hidden;
+            border-radius: 2rem;
+            border: 1px solid rgba(226, 232, 240, 0.9);
+            background: rgba(255, 255, 255, 0.84);
+            box-shadow: 0 20px 45px rgba(15, 23, 42, 0.06);
+            backdrop-filter: blur(14px);
+        }
+
+        .section-panel::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at top right, rgba(191, 219, 254, 0.24), transparent 32%);
+            pointer-events: none;
+        }
+
+        .stats-card {
+            padding: 1.6rem 1.25rem;
+            border-radius: 0;
+            background: transparent;
+            border: 0;
+            border-left: 1px solid rgba(191, 219, 254, 0.22);
+            box-shadow: none;
+        }
+
+        .feature-card {
+            border: 1px solid rgba(226, 232, 240, 0.7);
+            box-shadow: 0 14px 30px rgba(15, 23, 42, 0.05);
+            border-radius: 1.35rem;
+        }
+
+        .dark-info-panel {
+            position: relative;
+            overflow: hidden;
+            background:
+                radial-gradient(circle at top right, rgba(37, 99, 235, 0.32), transparent 32%),
+                linear-gradient(180deg, #0f172a 0%, #111827 100%);
+        }
+
+        .dark-info-panel::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(148, 163, 184, 0.1), transparent 50%);
+            pointer-events: none;
+        }
+
+        .video-frame {
+            position: relative;
+        }
+
+        .video-frame::before {
+            content: "";
+            position: absolute;
+            inset: -1rem;
+            border-radius: 2rem;
+            background: linear-gradient(135deg, rgba(219, 234, 254, 0.85), rgba(255, 255, 255, 0));
+            z-index: 0;
+        }
+
+        .video-frame .video-container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-card {
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
+            box-shadow: 0 22px 40px rgba(2, 6, 23, 0.18);
+            border-radius: 1.75rem;
+            border-left-width: 3px;
+        }
+
+        .testimonial-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(96, 165, 250, 0.08), transparent 42%);
+            pointer-events: none;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(147, 197, 253, 0.6);
+            box-shadow: 0 28px 55px rgba(2, 6, 23, 0.24);
+        }
+
+        .faq-item {
+            transition: box-shadow 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+        }
+
+        .faq-item:hover {
+            transform: translateY(-2px);
+            border-color: #bfdbfe;
+            box-shadow: 0 16px 30px rgba(15, 23, 42, 0.06);
+        }
+
+        .faq-item.open {
+            border-color: #93c5fd;
+            box-shadow: 0 18px 36px rgba(37, 99, 235, 0.08);
+        }
+
+        .faq-item.open .faq-chevron {
+            transform: rotate(180deg);
+        }
+
+        .faq-chevron {
+            transition: transform 0.25s ease;
+        }
+
+        .contact-shell {
+            position: relative;
+            overflow: hidden;
+            border-radius: 2rem;
+            background:
+                radial-gradient(circle at top right, rgba(191, 219, 254, 0.45), transparent 28%),
+                linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
+            border: 1px solid rgba(219, 234, 254, 0.9);
+            box-shadow: 0 24px 55px rgba(15, 23, 42, 0.08);
+        }
+
+        .contact-info-card,
+        .contact-form-shell {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            box-shadow: 0 18px 40px rgba(15, 23, 42, 0.05);
+        }
+
+        .section-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.65rem;
+            font-size: 0.72rem;
+            font-weight: 800;
+            letter-spacing: 0.24em;
+            text-transform: uppercase;
+            color: #2563eb;
+        }
+
+        .section-kicker::before {
+            content: "";
+            width: 2rem;
+            height: 1px;
+            background: currentColor;
+            opacity: 0.7;
+        }
+
+        .hero-proof-list {
+            display: grid;
+            gap: 0.9rem;
+            margin-top: 2rem;
+            max-width: 34rem;
+        }
+
+        .hero-proof-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.9rem;
+            padding-top: 0.9rem;
+            border-top: 1px solid rgba(203, 213, 225, 0.7);
+            color: #475569;
+            font-size: 0.95rem;
+        }
+
+        .hero-proof-item strong {
+            display: block;
+            color: #0f172a;
+            font-size: 0.96rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .hero-proof-item i {
+            color: #2563eb;
+            margin-top: 0.15rem;
+        }
+
+        .section-split-header {
+            display: grid;
+            grid-template-columns: minmax(0, 1.2fr) minmax(18rem, 0.8fr);
+            gap: 2rem;
+            align-items: end;
+        }
+
+        .section-side-note {
+            color: #64748b;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            padding-left: 1.4rem;
+            border-left: 1px solid rgba(203, 213, 225, 0.8);
+        }
+
+        .muted-button {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(226, 232, 240, 0.95);
+            color: #0f172a;
+        }
+
+        .muted-button:hover {
+            border-color: #2563eb;
+            color: #2563eb;
+        }
+
+        .editorial-title {
+            max-width: 10ch;
+            line-height: 0.92;
+        }
+
+        .footer-shell {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer-shell::before {
+            content: "";
+            position: absolute;
+            top: -6rem;
+            right: -4rem;
+            width: 18rem;
+            height: 18rem;
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.22), transparent 65%);
+            pointer-events: none;
+        }
+
+        .hero-visual-shell {
+            position: relative;
+            padding: 2.25rem 12.5rem 2.25rem 8.5rem;
+        }
+
+        .hero-visual-shell::before {
+            content: "";
+            position: absolute;
+            inset: 1rem 5rem 1rem 4rem;
+            border-radius: 3rem;
+            background: linear-gradient(135deg, rgba(239, 246, 255, 0.95), rgba(255, 255, 255, 0.8));
+            border: 1px solid rgba(219, 234, 254, 0.85);
+            box-shadow: 0 24px 60px rgba(148, 163, 184, 0.18);
+        }
+
+        .hero-visual-media {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-floating-card {
+            position: absolute;
+            z-index: 3;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(191, 219, 254, 0.95);
+            box-shadow: 0 20px 45px rgba(15, 23, 42, 0.12);
+        }
+
+        .hero-status-card {
+            right: 0;
+            bottom: 2.5rem;
+            width: 16.5rem;
+            padding: 1.1rem;
+            border-radius: 1.6rem;
+        }
+
+        .hero-status-card-header {
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-status-card-icon {
+            width: 2.75rem;
+            height: 2.75rem;
+            border-radius: 9999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #dbeafe 0%, #eff6ff 100%);
+            color: #2563eb;
+            font-size: 1rem;
+        }
+
+        .hero-status-card-label {
+            font-size: 0.65rem;
+            font-weight: 800;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            color: #94a3b8;
+            margin-bottom: 0.2rem;
+        }
+
+        .hero-status-card-title {
+            font-size: 1rem;
+            font-weight: 800;
+            color: #0f172a;
+            line-height: 1.2;
+        }
+
+        .hero-status-list {
+            display: grid;
+            gap: 0.65rem;
+        }
+
+        .hero-status-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.7rem 0.8rem;
+            border-radius: 1rem;
+            background: linear-gradient(135deg, #f8fbff 0%, #eff6ff 100%);
+            border: 1px solid #dbeafe;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #1e293b;
+        }
+
+        .hero-status-item i {
+            color: #2563eb;
+        }
+
+        .hero-security-card {
+            top: 2.75rem;
+            left: 0;
+            padding: 1rem 1.1rem;
+            border-radius: 1.5rem;
+            min-width: 13.5rem;
+        }
+
+        .hero-security-card p:first-child {
+            font-size: 0.7rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.22em;
+            color: #94a3b8;
+            margin-bottom: 0.2rem;
+        }
+
+        .hero-security-card p:last-child {
+            font-size: 1rem;
+            font-weight: 800;
+            color: #0f172a;
+        }
+
+        .hero-security-card::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            right: -2rem;
+            width: 2rem;
+            height: 1px;
+            background: linear-gradient(90deg, rgba(147, 197, 253, 0.9), rgba(147, 197, 253, 0));
+        }
+
+        .hero-status-card::before {
+            content: "";
+            position: absolute;
+            top: 1.5rem;
+            left: -2rem;
+            width: 2rem;
+            height: 1px;
+            background: linear-gradient(90deg, rgba(147, 197, 253, 0), rgba(147, 197, 253, 0.9));
+        }
+
+        @media (max-width: 768px) {
+            main {
+                padding-bottom: 8.5rem;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .section-split-header {
+                grid-template-columns: 1fr;
+            }
+
+            .section-side-note {
+                padding-left: 0;
+                border-left: 0;
+            }
+
+            .hero-proof-list {
+                margin-left: auto;
+                margin-right: auto;
+            }
         }
     </style>
 </head>
@@ -70,120 +554,167 @@
 
     <header id="main-header" class="bg-white/90 backdrop-blur-md border-b sticky top-0 z-50 transition-all duration-300">
         <div class="bg-blue-900 text-white py-2 text-xs">
-            <div class="container mx-auto px-4 flex justify-between items-center">
-                <div class="flex space-x-4">
+            <div class="container mx-auto px-4 flex flex-col gap-2 py-1 sm:flex-row sm:justify-between sm:items-center">
+                <div class="flex flex-col gap-1 sm:flex-row sm:space-x-4 sm:gap-0">
                     <span><i class="fa-solid fa-phone mr-1"></i> +1 (978) 416-4422</span>
                     <span class="hidden md:inline"><i class="fa-solid fa-envelope mr-1"></i> contact@centuryinternationalservices.com</span>
                 </div>
                 <div class="flex items-center space-x-4">
-                    <div class="flex items-center bg-blue-800 px-2 rounded">
-                        <i class="fa-solid fa-globe mr-2 text-[10px]"></i>
-                        <select id="langSelect" onchange="changeLanguage(this.value)" class="text-white text-xs py-1 focus:outline-none bg-blue-800 cursor-pointer">
-                            <option value="pt">Português</option>
-                            <option value="en">English</option>
-                            <option value="es">Español</option>
-                        </select>
+                    <div class="flex items-center gap-2 rounded-full border border-blue-700 bg-blue-800/80 px-2 py-1">
+                        <i class="fa-solid fa-globe text-[10px]"></i>
+                        <button type="button" id="lang-btn-pt" onclick="changeLanguage('pt')" class="rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em] transition">PT</button>
+                        <button type="button" id="lang-btn-en" onclick="changeLanguage('en')" class="rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em] transition">EN</button>
+                        <button type="button" id="lang-btn-es" onclick="changeLanguage('es')" class="rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em] transition">ES</button>
                     </div>
                 </div>
             </div>
         </div>
-        <div id="header-nav" class="container mx-auto px-4 py-4 flex justify-between items-center transition-all duration-300">
+        <div id="header-nav" class="container mx-auto px-4 py-4 flex justify-between items-center gap-4 transition-all duration-300">
             <div class="flex items-center space-x-2 cursor-pointer" onclick="navigateTo('home')">
                 <div class="w-10 h-10 md:w-12 md:h-12 bg-blue-900 rounded-lg flex items-center justify-center text-white">
                     <i class="fa-solid fa-c text-xl md:text-2xl font-bold"></i>
                 </div>
                 <div>
                     <span class="block font-bold text-lg md:text-xl leading-none">CENTURY</span>
-                    <span class="text-[8px] md:text-[10px] tracking-[0.2em] text-blue-600 font-bold uppercase">International Services</span>
+                    <span class="text-[8px] md:text-[10px] tracking-[0.2em] text-blue-600 font-bold uppercase">Consular & Immigration</span>
                 </div>
             </div>
 
             <nav class="hidden lg:flex items-center space-x-8 text-sm font-bold text-slate-700">
-                <a href="#" onclick="navigateTo('home')" class="hover:text-blue-600 transition">Início</a>
-                <a href="#" onclick="navigateTo('about')" class="hover:text-blue-600 transition">Quem Somos</a>
-                <a href="#" onclick="goToServices()" class="hover:text-blue-600 transition">Serviços</a>
-                <a href="#" onclick="navigateTo('contact')" class="hover:text-blue-600 transition">Contato</a>
+                <a href="#" id="nav-home" onclick="navigateTo('home')" class="hover:text-blue-600 transition">Início</a>
+                <a href="#" id="nav-about" onclick="navigateTo('about')" class="hover:text-blue-600 transition">Quem Somos</a>
+                <a href="#" id="nav-services" onclick="goToServices()" class="hover:text-blue-600 transition">Serviços</a>
+                <a href="#" id="nav-contact" onclick="navigateTo('contact')" class="hover:text-blue-600 transition">Contato</a>
             </nav>
 
             <div class="flex items-center space-x-4">
                 <a href="https://wa.me/19784164422" target="_blank" class="btn-whatsapp px-5 py-2.5 rounded-xl text-sm font-bold flex items-center transition hover:scale-105">
-                    <i class="fab fa-whatsapp mr-2 text-lg"></i> <span class="hidden sm:inline">WhatsApp</span>
+                    <i class="fab fa-whatsapp mr-2 text-lg"></i> <span id="header-whatsapp-label" class="hidden sm:inline">WhatsApp</span>
                 </a>
                 <button class="lg:hidden text-slate-800" onclick="toggleMobileMenu()">
                     <i class="fa-solid fa-bars text-2xl"></i>
                 </button>
             </div>
         </div>
+        <div class="hidden lg:block border-t border-slate-100 bg-white/95">
+            <div class="container mx-auto px-4 py-3">
+                <div id="desktop-services-menu" class="flex flex-wrap gap-3"></div>
+            </div>
+        </div>
     </header>
 
     <div id="mobileMenu" class="fixed inset-0 bg-white z-[60] hidden flex-col p-8">
         <div class="flex justify-between items-center mb-12">
-            <span class="font-bold text-blue-900">MENU</span>
+            <span id="mobile-menu-title" class="font-bold text-blue-900">MENU</span>
             <button onclick="toggleMobileMenu()"><i class="fa-solid fa-xmark text-3xl"></i></button>
         </div>
         <nav class="flex flex-col space-y-6 text-2xl font-bold text-slate-800">
-            <a href="#" onclick="navigateTo('home'); toggleMobileMenu()">Início</a>
-            <a href="#" onclick="navigateTo('about'); toggleMobileMenu()">Quem Somos</a>
-            <a href="#" onclick="goToServices(); toggleMobileMenu()">Serviços</a>
-            <a href="#" onclick="navigateTo('contact'); toggleMobileMenu()">Contato</a>
+            <a href="#" id="mobile-nav-home" onclick="navigateTo('home'); toggleMobileMenu()">Início</a>
+            <a href="#" id="mobile-nav-about" onclick="navigateTo('about'); toggleMobileMenu()">Quem Somos</a>
+            <a href="#" id="mobile-nav-services" onclick="goToServices(); toggleMobileMenu()">Serviços</a>
+            <a href="#" id="mobile-nav-contact" onclick="navigateTo('contact'); toggleMobileMenu()">Contato</a>
             <hr class="border-slate-100">
-            <div class="flex flex-col space-y-4 pt-4">
-                <a href="#" class="text-lg text-blue-600 flex items-center">Century Technology <i class="fa-solid fa-arrow-right ml-2 text-sm"></i></a>
-                <a href="#" class="text-lg text-blue-600 flex items-center">Previdência no Brasil <i class="fa-solid fa-arrow-right ml-2 text-sm"></i></a>
+            <div class="pt-4">
+                <p id="mobile-featured-services-title" class="text-xs font-bold uppercase tracking-[0.25em] text-slate-400 mb-4">Serviços em Destaque</p>
+                <div id="mobile-services-menu" class="flex flex-col space-y-3"></div>
             </div>
         </nav>
     </div>
 
-    <div class="fixed bottom-6 right-6 z-50 flex items-center group">
-        <span class="bg-white text-slate-800 text-sm font-bold py-2 px-4 rounded-xl shadow-lg mr-4 opacity-0 translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 pointer-events-none">
-            Fale conosco!
+    <div class="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50 flex items-center group">
+        <span class="hidden md:block bg-white text-slate-800 text-sm font-bold py-2 px-4 rounded-xl shadow-lg mr-4 opacity-0 translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 pointer-events-none">
+            <span id="floating-whatsapp-label">Fale conosco!</span>
         </span>
-        <a href="https://wa.me/19784164422" target="_blank" class="w-16 h-16 btn-whatsapp rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform">
-            <i class="fab fa-whatsapp text-3xl"></i>
+        <a href="https://wa.me/19784164422" target="_blank" class="w-14 h-14 md:w-16 md:h-16 btn-whatsapp rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform">
+            <i class="fab fa-whatsapp text-2xl md:text-3xl"></i>
         </a>
     </div>
 
     <main>
         <section id="home" class="content-section">
-            <div class="relative bg-white pt-10 pb-16 md:pt-20 md:pb-32">
-                <div class="container mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center">
+            <div class="relative overflow-hidden bg-white pt-12 pb-20 md:pt-20 md:pb-28 lg:pt-24 lg:pb-32">
+                <div class="absolute inset-x-0 top-0 h-[34rem] bg-[radial-gradient(circle_at_top_left,_rgba(219,234,254,0.95),_transparent_38%),radial-gradient(circle_at_top_right,_rgba(191,219,254,0.55),_transparent_26%)]"></div>
+                <div class="container mx-auto px-4 grid lg:grid-cols-2 gap-14 lg:gap-16 items-center">
                     <div class="z-10 text-center lg:text-left">
                         <div class="inline-flex items-center space-x-2 bg-blue-50 text-blue-700 px-4 py-2 rounded-full text-xs font-bold mb-6">
                             <span class="w-2 h-2 bg-blue-600 rounded-full animate-ping"></span>
-                            <span>SUPORTE ESPECIALIZADO NOS EUA</span>
+                            <span id="hero-pill">SUPORTE ESPECIALIZADO NOS EUA</span>
                         </div>
-                        <h1 id="hero-title" class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-slate-900 mb-6">
+                        <h1 id="hero-title" class="editorial-title text-5xl md:text-6xl lg:text-[5.2rem] font-semibold leading-none text-slate-900 mb-6">
                             Sua ponte segura para <span class="text-blue-600">serviços globais.</span>
                         </h1>
-                        <p id="hero-sub" class="text-lg text-slate-600 mb-10 max-w-xl mx-auto lg:mx-0">
+                        <p id="hero-sub" class="text-[1.05rem] text-slate-600 mb-10 max-w-xl mx-auto lg:mx-0 leading-8">
                             Simplificamos processos burocráticos, consulares e documentais para brasileiros e latinos com agilidade de despachante e seriedade consultiva.
                         </p>
 
-                        <div class="flex flex-wrap justify-center lg:justify-start gap-3 mb-10">
-                            <span class="quick-link-badge" onclick="renderGroupDetail('consular')">Passaporte Brasileiro</span>
-                            <span class="quick-link-badge" onclick="renderGroupDetail('documental')">Apostilamento de Haia</span>
-                            <span class="quick-link-badge" onclick="renderGroupDetail('documental')">Regularização de CPF</span>
-                            <span class="quick-link-badge" onclick="renderGroupDetail('immigration')">Green Card</span>
+                        <div class="flex flex-wrap justify-center lg:justify-start gap-3 mb-10 lg:pr-8">
+                            <span id="quick-link-1" class="quick-link-badge" onclick="renderGroupDetail('consular')">Passaporte Brasileiro</span>
+                            <span id="quick-link-2" class="quick-link-badge" onclick="renderGroupDetail('documental')">Apostilamento de Haia</span>
+                            <span id="quick-link-3" class="quick-link-badge" onclick="renderGroupDetail('documental')">Regularização de CPF</span>
+                            <span id="quick-link-4" class="quick-link-badge" onclick="renderGroupDetail('immigration')">Green Card</span>
+                            <span id="quick-link-5" class="quick-link-badge" onclick="renderGroupDetail('documental')">Tradução Certificada</span>
+                            <span id="quick-link-6" class="quick-link-badge" onclick="renderGroupDetail('immigration')">Naturalização</span>
                         </div>
 
                         <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
-                            <button onclick="goToServices()" class="bg-blue-900 text-white px-8 py-4 rounded-2xl font-bold shadow-lg hover:bg-blue-800 transition">Ver Todos os Serviços</button>
-                            <a href="https://wa.me/19784164422" target="_blank" class="bg-white border-2 border-slate-200 text-slate-700 px-8 py-4 rounded-2xl font-bold flex items-center justify-center hover:border-blue-600 hover:text-blue-600 transition">
-                                <i class="fab fa-whatsapp mr-2 text-xl text-green-500"></i> Consulta Gratuita
+                            <button id="hero-services-btn" onclick="goToServices()" class="bg-blue-900 text-white px-8 py-4 rounded-2xl font-bold shadow-lg hover:bg-blue-800 transition">Ver Todos os Serviços</button>
+                            <a href="https://wa.me/19784164422" target="_blank" class="muted-button px-8 py-4 rounded-2xl font-bold flex items-center justify-center transition">
+                                <i class="fab fa-whatsapp mr-2 text-xl text-green-500"></i> <span id="hero-consult-btn">Consulta Gratuita</span>
                             </a>
                         </div>
-                    </div>
-                    <div class="relative hidden lg:block">
-                        <div class="absolute -top-10 -right-10 w-72 h-72 bg-blue-100 rounded-full mix-blend-multiply filter blur-3xl opacity-30"></div>
-                        <img src="https://images.unsplash.com/photo-1521791136064-7986c2923216?auto=format&fit=crop&q=80&w=800" alt="Consultoria Documental" class="rounded-[3rem] shadow-2xl relative z-10 border-[12px] border-white">
-                        <div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-3xl shadow-xl z-20 border border-slate-100 animate-bounce-slow">
-                            <div class="flex items-center space-x-3">
-                                <div class="w-10 h-10 bg-green-100 text-green-600 rounded-full flex items-center justify-center">
-                                    <i class="fa-solid fa-shield-halved"></i>
-                                </div>
+                        <div class="hero-proof-list text-left">
+                            <div class="hero-proof-item">
+                                <i class="fa-solid fa-file-signature"></i>
                                 <div>
-                                    <p class="text-xs text-slate-400 font-bold uppercase tracking-wider">Processos</p>
-                                    <p class="text-sm font-bold text-slate-800">100% Seguros</p>
+                                    <strong id="hero-proof-title-1">Triagem documental com critério</strong>
+                                    <span id="hero-proof-copy-1">Reduzimos retrabalho antes que o processo chegue à etapa crítica.</span>
+                                </div>
+                            </div>
+                            <div class="hero-proof-item">
+                                <i class="fa-solid fa-comments"></i>
+                                <div>
+                                    <strong id="hero-proof-title-2">Atendimento direto, sem robô</strong>
+                                    <span id="hero-proof-copy-2">O cliente fala com gente de verdade para resolver casos reais.</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-8 grid sm:grid-cols-2 xl:grid-cols-4 gap-3 text-left">
+                            <div class="trust-badge"><i class="fa-solid fa-shield-halved"></i><span id="trust-badge-1">100% Seguro</span></div>
+                            <div class="trust-badge"><i class="fa-solid fa-file-circle-check"></i><span id="trust-badge-2">Documentos Conferidos</span></div>
+                            <div class="trust-badge"><i class="fa-solid fa-bolt"></i><span id="trust-badge-3">Resposta Ágil</span></div>
+                            <div class="trust-badge"><i class="fa-solid fa-headset"></i><span id="trust-badge-4">Atendimento Humano</span></div>
+                        </div>
+                    </div>
+                    <div class="relative hidden lg:block lg:pl-6">
+                        <div class="absolute -top-10 -right-10 w-72 h-72 bg-blue-100 rounded-full mix-blend-multiply filter blur-3xl opacity-30"></div>
+                        <div class="hero-visual-shell">
+                            <div class="hero-visual-media">
+                                <img src="https://images.unsplash.com/photo-1521791136064-7986c2923216?auto=format&fit=crop&q=80&w=800" alt="Consultoria Documental" class="rounded-[3rem] shadow-2xl relative z-10 border-[12px] border-white">
+                            </div>
+                            <div class="hero-floating-card hero-security-card">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-10 h-10 bg-green-100 text-green-600 rounded-full flex items-center justify-center">
+                                        <i class="fa-solid fa-shield-halved"></i>
+                                    </div>
+                                    <div>
+                                        <p id="hero-security-label">Processos</p>
+                                        <p id="hero-security-title">100% Seguros</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="hero-floating-card hero-status-card">
+                                <div class="hero-status-card-header">
+                                    <div class="hero-status-card-icon">
+                                        <i class="fa-solid fa-award"></i>
+                                    </div>
+                                    <div>
+                                        <p id="hero-status-label" class="hero-status-card-label">Selo Century</p>
+                                        <p id="hero-status-title" class="hero-status-card-title">Atendimento verificado e protegido</p>
+                                    </div>
+                                </div>
+                                <div class="hero-status-list">
+                                    <div class="hero-status-item"><i class="fa-solid fa-award"></i><span id="hero-status-item-1">Consultoria Premium</span></div>
+                                    <div class="hero-status-item"><i class="fa-solid fa-lock"></i><span id="hero-status-item-2">Dados Protegidos</span></div>
                                 </div>
                             </div>
                         </div>
@@ -191,102 +722,151 @@
                 </div>
             </div>
 
-            <div class="bg-blue-900 py-12">
+            <div class="bg-blue-900 py-14 md:py-16">
                 <div class="container mx-auto px-4">
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center text-white">
-                        <div>
+                    <div class="section-panel bg-transparent border-white/10 px-5 py-5 md:px-8 md:py-7">
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 text-center text-white">
+                        <div class="stats-card md:first:border-l-0">
                             <p class="text-3xl md:text-4xl font-bold mb-1">+10k</p>
-                            <p class="text-blue-200 text-xs uppercase tracking-widest">Documentos Emitidos</p>
+                            <p id="stat-label-1" class="text-blue-200 text-xs uppercase tracking-widest">Documentos Emitidos</p>
                         </div>
-                        <div>
+                        <div class="stats-card">
                             <p class="text-3xl md:text-4xl font-bold mb-1">15+</p>
-                            <p class="text-blue-200 text-xs uppercase tracking-widest">Anos de Experiência</p>
+                            <p id="stat-label-2" class="text-blue-200 text-xs uppercase tracking-widest">Anos de Experiência</p>
                         </div>
-                        <div>
+                        <div class="stats-card">
                             <p class="text-3xl md:text-4xl font-bold mb-1">3</p>
-                            <p class="text-blue-200 text-xs uppercase tracking-widest">Idiomas Disponíveis</p>
+                            <p id="stat-label-3" class="text-blue-200 text-xs uppercase tracking-widest">Idiomas Disponíveis</p>
                         </div>
-                        <div>
+                        <div class="stats-card">
                             <p class="text-3xl md:text-4xl font-bold mb-1">100%</p>
-                            <p class="text-blue-200 text-xs uppercase tracking-widest">Foco no Cliente</p>
+                            <p id="stat-label-4" class="text-blue-200 text-xs uppercase tracking-widest">Foco no Cliente</p>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="services-anchor" class="py-20 md:py-24 lg:py-28 bg-slate-50">
+                <div class="container mx-auto px-4">
+                    <div class="section-split-header mb-14 md:mb-16">
+                        <div>
+                            <span id="services-kicker" class="section-kicker mb-4">Serviços Century</span>
+                            <h2 id="services-title" class="text-4xl md:text-5xl font-semibold text-slate-900 mb-4">Como podemos ajudar hoje?</h2>
+                            <p id="services-intro" class="text-slate-600 text-lg max-w-2xl">Selecione uma categoria para ver os serviços especializados que oferecemos.</p>
+                        </div>
+                        <div id="services-side-note" class="section-side-note">
+                            Cada frente foi organizada para parecer menos catálogo e mais consultoria: você entra por necessidade, entende o escopo e avança rápido para o atendimento.
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8" id="service-groups-container"></div>
+
+                    <div class="mt-14 md:mt-16 grid lg:grid-cols-[1.35fr_0.95fr] gap-6 lg:gap-8">
+                        <div class="accent-panel rounded-[2rem] border border-blue-100 p-8 md:p-10 shadow-[0_24px_55px_rgba(15,23,42,0.07)]">
+                            <div class="flex flex-wrap items-center gap-3 mb-6">
+                                <span id="confidence-pill-1" class="px-3 py-1 bg-blue-900 text-white text-[11px] font-bold rounded-full uppercase tracking-[0.2em]">Padrão Century</span>
+                                <span id="confidence-pill-2" class="px-3 py-1 bg-white text-slate-700 text-[11px] font-bold rounded-full border border-slate-200 uppercase tracking-[0.2em]">Atendimento Consultivo</span>
+                            </div>
+                            <h3 id="confidence-title" class="text-2xl md:text-3xl font-extrabold text-slate-900 mb-4">Mais camadas de confiança em cada atendimento.</h3>
+                            <p id="confidence-copy" class="text-slate-600 leading-relaxed mb-8 max-w-2xl">
+                                A Century combina conferência documental, suporte multicanal e acompanhamento próximo para reduzir erros, acelerar etapas e dar visibilidade ao cliente durante todo o processo.
+                            </p>
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div class="feature-card bg-white rounded-2xl p-5">
+                                    <div class="flex items-center gap-3 mb-3">
+                                        <div class="w-10 h-10 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center"><i class="fa-solid fa-shield-heart"></i></div>
+                                        <p id="confidence-card-title-1" class="font-bold text-slate-900">100% Seguro</p>
+                                    </div>
+                                    <p id="confidence-card-copy-1" class="text-sm text-slate-600">Checklist e validação para evitar retrabalho e reduzir riscos na entrega.</p>
+                                </div>
+                                <div class="feature-card bg-white rounded-2xl p-5">
+                                    <div class="flex items-center gap-3 mb-3">
+                                        <div class="w-10 h-10 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center"><i class="fa-solid fa-eye"></i></div>
+                                        <p id="confidence-card-title-2" class="font-bold text-slate-900">Processo Transparente</p>
+                                    </div>
+                                    <p id="confidence-card-copy-2" class="text-sm text-slate-600">Você entende o que está sendo feito, o que falta e qual é o próximo passo.</p>
+                                </div>
+                                <div class="feature-card bg-white rounded-2xl p-5">
+                                    <div class="flex items-center gap-3 mb-3">
+                                        <div class="w-10 h-10 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center"><i class="fa-solid fa-language"></i></div>
+                                        <p id="confidence-card-title-3" class="font-bold text-slate-900">3 Idiomas</p>
+                                    </div>
+                                    <p id="confidence-card-copy-3" class="text-sm text-slate-600">Comunicação clara em português, inglês e espanhol.</p>
+                                </div>
+                                <div class="feature-card bg-white rounded-2xl p-5">
+                                    <div class="flex items-center gap-3 mb-3">
+                                        <div class="w-10 h-10 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center"><i class="fa-solid fa-user-check"></i></div>
+                                        <p id="confidence-card-title-4" class="font-bold text-slate-900">Suporte de Verdade</p>
+                                    </div>
+                                    <p id="confidence-card-copy-4" class="text-sm text-slate-600">Atendimento humano para dúvidas reais, sem fluxo genérico ou abandono.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dark-info-panel text-white rounded-[2rem] p-8 md:p-10">
+                            <p id="badge-panel-label" class="text-xs uppercase tracking-[0.25em] text-blue-300 font-bold mb-4">Badges Century</p>
+                            <h3 id="badge-panel-title" class="text-2xl font-extrabold mb-6">O que reforça a confiança no site</h3>
+                            <div class="space-y-4">
+                                <div class="flex items-start gap-4 pb-4 border-b border-slate-800">
+                                    <i class="fa-solid fa-certificate text-green-400 mt-1"></i>
+                                    <div>
+                                        <p id="badge-item-title-1" class="font-bold">Atendimento verificado</p>
+                                        <p id="badge-item-copy-1" class="text-sm text-slate-300">Equipe preparada para orientar processos consulares, documentais e migratórios.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-4 pb-4 border-b border-slate-800">
+                                    <i class="fa-solid fa-clock text-green-400 mt-1"></i>
+                                    <div>
+                                        <p id="badge-item-title-2" class="font-bold">Resposta rápida</p>
+                                        <p id="badge-item-copy-2" class="text-sm text-slate-300">Estrutura de atendimento pensada para triagem e retorno ágil.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-4">
+                                    <i class="fa-solid fa-thumbs-up text-green-400 mt-1"></i>
+                                    <div>
+                                        <p id="badge-item-title-3" class="font-bold">Foco total no cliente</p>
+                                        <p id="badge-item-copy-3" class="text-sm text-slate-300">Cada etapa do site reforça segurança, proximidade e clareza.</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div id="services-anchor" class="py-24 bg-slate-50">
+            <div class="py-20 md:py-24 lg:py-28 bg-white border-y border-slate-100">
                 <div class="container mx-auto px-4">
-                    <div class="max-w-3xl mb-16">
-                        <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">Como podemos ajudar hoje?</h2>
-                        <p class="text-slate-600 text-lg">Selecione uma categoria para ver os serviços especializados que oferecemos.</p>
-                    </div>
-
-                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="service-groups-container"></div>
-
-                    <div class="mt-16 grid md:grid-cols-2 gap-8">
-                        <div class="group relative bg-white p-1 rounded-3xl shadow-sm hover:shadow-xl transition overflow-hidden">
-                            <div class="p-8 flex flex-col md:flex-row items-center justify-between">
-                                <div class="mb-6 md:mb-0">
-                                    <div class="flex items-center space-x-2 mb-2">
-                                        <span class="px-2 py-0.5 bg-blue-100 text-blue-700 text-[10px] font-bold rounded">EXTERNO</span>
-                                        <h3 class="text-2xl font-bold text-slate-800">Previdência no Brasil</h3>
-                                    </div>
-                                    <p class="text-slate-500 text-sm">Consultoria para aposentadoria e serviços de INSS para residentes no exterior.</p>
-                                </div>
-                                <a href="#" class="bg-blue-900 text-white px-6 py-3 rounded-xl font-bold flex items-center hover:bg-blue-800 transition whitespace-nowrap">
-                                    Ir para o Site <i class="fa-solid fa-external-link ml-2 text-xs"></i>
-                                </a>
+                    <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                        <div class="video-frame">
+                            <div class="video-container shadow-2xl ring-8 ring-slate-50">
+                                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Vídeo Century" frameborder="0" allowfullscreen></iframe>
                             </div>
-                        </div>
-                        <div class="group relative bg-white p-1 rounded-3xl shadow-sm hover:shadow-xl transition overflow-hidden">
-                            <div class="p-8 flex flex-col md:flex-row items-center justify-between">
-                                <div class="mb-6 md:mb-0">
-                                    <div class="flex items-center space-x-2 mb-2">
-                                        <span class="px-2 py-0.5 bg-slate-100 text-slate-700 text-[10px] font-bold rounded">TECNOLOGIA</span>
-                                        <h3 class="text-2xl font-bold text-slate-800">Century Technology</h3>
-                                    </div>
-                                    <p class="text-slate-500 text-sm">Desenvolvimento de sistemas e soluções digitais para o seu negócio.</p>
-                                </div>
-                                <a href="#" class="bg-slate-800 text-white px-6 py-3 rounded-xl font-bold flex items-center hover:bg-slate-700 transition whitespace-nowrap">
-                                    Ir para o Site <i class="fa-solid fa-external-link ml-2 text-xs"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="py-24 bg-white border-y border-slate-100">
-                <div class="container mx-auto px-4">
-                    <div class="grid lg:grid-cols-2 gap-20 items-center">
-                        <div class="video-container shadow-2xl ring-8 ring-slate-50">
-                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Vídeo Century" frameborder="0" allowfullscreen></iframe>
                         </div>
                         <div>
-                            <span class="text-blue-600 font-bold tracking-widest text-xs uppercase mb-4 block">Sobre a Century</span>
-                            <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-6 leading-tight">Mais que um despachante, um parceiro para sua jornada.</h2>
-                            <p class="text-slate-600 text-lg mb-8 leading-relaxed">
+                            <span id="about-preview-label" class="section-kicker mb-4">Sobre a Century</span>
+                            <h2 id="about-preview-title" class="text-4xl md:text-5xl font-semibold text-slate-900 mb-6 leading-none">Mais que um despachante, um parceiro para sua jornada.</h2>
+                            <p id="about-preview-copy" class="text-slate-600 text-lg mb-8 leading-relaxed">
                                 Acreditamos que a imigração e a vida internacional não precisam ser sinônimos de dor de cabeça. Nossa metodologia une o rigor técnico à facilidade de atendimento pelo WhatsApp, garantindo que você nunca se sinta sozinho no processo.
                             </p>
                             <div class="grid sm:grid-cols-2 gap-6 mb-10">
                                 <div class="flex items-start space-x-3">
                                     <div class="mt-1 text-green-500"><i class="fa-solid fa-check-circle"></i></div>
-                                    <p class="text-sm font-semibold text-slate-700">Atendimento Nativo (PT/EN/ES)</p>
+                                    <p id="about-preview-check-1" class="text-sm font-semibold text-slate-700">Atendimento Nativo (PT/EN/ES)</p>
                                 </div>
                                 <div class="flex items-start space-x-3">
                                     <div class="mt-1 text-green-500"><i class="fa-solid fa-check-circle"></i></div>
-                                    <p class="text-sm font-semibold text-slate-700">Protocolos Digitalizados</p>
+                                    <p id="about-preview-check-2" class="text-sm font-semibold text-slate-700">Protocolos Digitalizados</p>
                                 </div>
                                 <div class="flex items-start space-x-3">
                                     <div class="mt-1 text-green-500"><i class="fa-solid fa-check-circle"></i></div>
-                                    <p class="text-sm font-semibold text-slate-700">Preços Transparentes</p>
+                                    <p id="about-preview-check-3" class="text-sm font-semibold text-slate-700">Preços Transparentes</p>
                                 </div>
                                 <div class="flex items-start space-x-3">
                                     <div class="mt-1 text-green-500"><i class="fa-solid fa-check-circle"></i></div>
-                                    <p class="text-sm font-semibold text-slate-700">Suporte Pós-Entrega</p>
+                                    <p id="about-preview-check-4" class="text-sm font-semibold text-slate-700">Suporte Pós-Entrega</p>
                                 </div>
                             </div>
-                            <button onclick="navigateTo('about')" class="bg-slate-900 text-white px-8 py-4 rounded-2xl font-bold hover:bg-slate-800 transition inline-flex items-center">
+                            <button id="about-preview-btn" onclick="navigateTo('about')" class="bg-slate-900 text-white px-8 py-4 rounded-2xl font-bold hover:bg-slate-800 transition inline-flex items-center">
                                 Conhecer Nossa História <i class="fa-solid fa-arrow-right ml-3"></i>
                             </button>
                         </div>
@@ -294,52 +874,52 @@
                 </div>
             </div>
 
-            <div class="py-24 bg-blue-900 text-white">
+            <div class="py-20 md:py-24 lg:py-28 bg-blue-900 text-white">
                 <div class="container mx-auto px-4">
                     <div class="text-center mb-16">
-                        <span class="text-blue-300 font-bold tracking-widest text-xs uppercase mb-2 block">Histórias de Sucesso</span>
-                        <h2 class="text-3xl md:text-4xl font-extrabold mb-4">O que nossos clientes dizem</h2>
+                        <span id="testimonials-label" class="section-kicker justify-center text-blue-300 mb-3">Histórias de Sucesso</span>
+                        <h2 id="testimonials-title" class="text-4xl md:text-5xl font-semibold mb-4">O que nossos clientes dizem</h2>
                     </div>
-                    <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                        <div class="bg-blue-800/50 p-8 rounded-3xl border border-blue-700 relative">
+                    <div class="grid md:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">
+                        <div class="testimonial-card bg-blue-800/50 p-8 rounded-3xl border border-blue-700 relative">
                             <i class="fa-solid fa-quote-left text-4xl text-blue-600 absolute top-6 right-6 opacity-50"></i>
                             <div class="flex items-center space-x-1 text-yellow-400 mb-4">
                                 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                             </div>
-                            <p class="text-blue-100 mb-6 italic">"A equipe da Century resolveu meu apostilamento em tempo recorde. Atendimento impecável pelo WhatsApp, me senti seguro o tempo todo."</p>
+                            <p id="testimonial-copy-1" class="text-blue-100 mb-6 italic">"A equipe da Century resolveu meu apostilamento em tempo recorde. Atendimento impecável pelo WhatsApp, me senti seguro o tempo todo."</p>
                             <div class="flex items-center space-x-3">
                                 <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center font-bold">M</div>
                                 <div>
                                     <p class="font-bold text-sm">Marcelo Silva</p>
-                                    <p class="text-xs text-blue-300">Flórida, EUA</p>
+                                    <p id="testimonial-location-1" class="text-xs text-blue-300">Flórida, EUA</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="bg-blue-800/50 p-8 rounded-3xl border border-blue-700 relative">
+                        <div class="testimonial-card bg-blue-800/50 p-8 rounded-3xl border border-blue-700 relative">
                             <i class="fa-solid fa-quote-left text-4xl text-blue-600 absolute top-6 right-6 opacity-50"></i>
                             <div class="flex items-center space-x-1 text-yellow-400 mb-4">
                                 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                             </div>
-                            <p class="text-blue-100 mb-6 italic">"Consegui renovar meu passaporte sem dor de cabeça. Eles cuidaram de todos os formulários e me orientaram perfeitamente para o dia do agendamento."</p>
+                            <p id="testimonial-copy-2" class="text-blue-100 mb-6 italic">"Consegui renovar meu passaporte sem dor de cabeça. Eles cuidaram de todos os formulários e me orientaram perfeitamente para o dia do agendamento."</p>
                             <div class="flex items-center space-x-3">
                                 <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center font-bold">A</div>
                                 <div>
                                     <p class="font-bold text-sm">Ana Paula Costa</p>
-                                    <p class="text-xs text-blue-300">Massachusetts, EUA</p>
+                                    <p id="testimonial-location-2" class="text-xs text-blue-300">Massachusetts, EUA</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="bg-blue-800/50 p-8 rounded-3xl border border-blue-700 relative">
+                        <div class="testimonial-card bg-blue-800/50 p-8 rounded-3xl border border-blue-700 relative">
                             <i class="fa-solid fa-quote-left text-4xl text-blue-600 absolute top-6 right-6 opacity-50"></i>
                             <div class="flex items-center space-x-1 text-yellow-400 mb-4">
                                 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                             </div>
-                            <p class="text-blue-100 mb-6 italic">"Profissionalismo define. Usei o serviço de tradução certificada e foi aceito de primeira pela imigração. Recomendo de olhos fechados."</p>
+                            <p id="testimonial-copy-3" class="text-blue-100 mb-6 italic">"Profissionalismo define. Usei o serviço de tradução certificada e foi aceito de primeira pela imigração. Recomendo de olhos fechados."</p>
                             <div class="flex items-center space-x-3">
                                 <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center font-bold">R</div>
                                 <div>
                                     <p class="font-bold text-sm">Roberto Almeida</p>
-                                    <p class="text-xs text-blue-300">Nova York, EUA</p>
+                                    <p id="testimonial-location-3" class="text-xs text-blue-300">Nova York, EUA</p>
                                 </div>
                             </div>
                         </div>
@@ -347,54 +927,55 @@
                 </div>
             </div>
 
-            <div class="py-24 bg-slate-50">
+            <div class="py-20 md:py-24 lg:py-28 bg-slate-50">
                 <div class="container mx-auto px-4 max-w-3xl">
-                    <h2 class="text-3xl font-extrabold text-center mb-12">Dúvidas Frequentes</h2>
+                    <span id="faq-kicker" class="section-kicker justify-center mb-4">FAQ</span>
+                    <h2 id="faq-title" class="text-4xl font-semibold text-center mb-12">Dúvidas Frequentes</h2>
                     <div class="space-y-4">
-                        <div class="bg-white p-6 rounded-2xl border border-slate-100 cursor-pointer" onclick="this.querySelector('.faq-content').classList.toggle('hidden')">
+                        <div class="faq-item bg-white p-6 rounded-2xl border border-slate-100 cursor-pointer" onclick="this.classList.toggle('open'); this.querySelector('.faq-content').classList.toggle('hidden')">
                             <div class="flex justify-between items-center font-bold text-slate-800">
-                                <span>Vocês fazem renovação de passaporte brasileiro?</span>
-                                <i class="fa-solid fa-chevron-down text-blue-600"></i>
+                                <span id="faq-question-1">Vocês fazem renovação de passaporte brasileiro?</span>
+                                <i class="faq-chevron fa-solid fa-chevron-down text-blue-600"></i>
                             </div>
-                            <p class="faq-content hidden mt-4 text-slate-500 text-sm">Sim. Prestamos assessoria completa para renovação de passaportes brasileiros junto aos consulados nos EUA, cuidando do preenchimento e agendamento.</p>
+                            <p id="faq-answer-1" class="faq-content hidden mt-4 text-slate-500 text-sm">Sim. Prestamos assessoria completa para renovação de passaportes brasileiros junto aos consulados nos EUA, cuidando do preenchimento e agendamento.</p>
                         </div>
-                        <div class="bg-white p-6 rounded-2xl border border-slate-100 cursor-pointer" onclick="this.querySelector('.faq-content').classList.toggle('hidden')">
+                        <div class="faq-item bg-white p-6 rounded-2xl border border-slate-100 cursor-pointer" onclick="this.classList.toggle('open'); this.querySelector('.faq-content').classList.toggle('hidden')">
                             <div class="flex justify-between items-center font-bold text-slate-800">
-                                <span>O que é o Apostilamento de Haia?</span>
-                                <i class="fa-solid fa-chevron-down text-blue-600"></i>
+                                <span id="faq-question-2">O que é o Apostilamento de Haia?</span>
+                                <i class="faq-chevron fa-solid fa-chevron-down text-blue-600"></i>
                             </div>
-                            <p class="faq-content hidden mt-4 text-slate-500 text-sm">É a certificação que torna um documento americano válido legalmente no Brasil (e vice-versa). Essencial para casamentos, estudos e registros.</p>
+                            <p id="faq-answer-2" class="faq-content hidden mt-4 text-slate-500 text-sm">É a certificação que torna um documento americano válido legalmente no Brasil (e vice-versa). Essencial para casamentos, estudos e registros.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="about" class="content-section hidden-section py-24 bg-white">
+        <section id="about" class="content-section hidden-section py-20 md:py-24 lg:py-28 bg-white">
             <div class="container mx-auto px-4 max-w-4xl">
-                <h2 class="text-4xl font-extrabold mb-8 text-center">Nossa Missão Internacional</h2>
+                <h2 id="about-title" class="text-4xl font-extrabold mb-8 text-center">Nossa Missão Internacional</h2>
                 <div class="prose prose-lg text-slate-700 mx-auto space-y-6">
-                    <p class="text-xl text-slate-500 text-center mb-12 italic">"Conectando pessoas aos seus direitos, documentos e sonhos, não importa onde elas estejam."</p>
-                    <p>
-                        A <strong>Century International Services</strong> foi fundada para suprir o gap entre a burocracia governamental e a necessidade real das famílias imigrantes. Sabemos que lidar com consulados, agências de imigração e registros civis pode ser intimidador.
+                    <p id="about-quote" class="text-xl text-slate-500 text-center mb-12 italic">"Conectando pessoas aos seus direitos, documentos e sonhos, não importa onde elas estejam."</p>
+                    <p id="about-copy">
+                        A <strong>Century</strong> foi fundada para suprir o gap entre a burocracia governamental e a necessidade real das famílias imigrantes. Sabemos que lidar com consulados, agências de imigração e registros civis pode ser intimidador.
                     </p>
                     <div class="grid md:grid-cols-2 gap-8 my-12">
                         <div class="bg-slate-50 p-8 rounded-3xl border border-slate-100">
-                            <h4 class="font-bold text-blue-900 mb-3 text-lg">Confiabilidade</h4>
-                            <p class="text-sm leading-relaxed">Tratamos cada documento como se fosse nosso. Segurança de dados e protocolos rigorosos são nossa base.</p>
+                            <h4 id="about-card-title-1" class="font-bold text-blue-900 mb-3 text-lg">Confiabilidade</h4>
+                            <p id="about-card-copy-1" class="text-sm leading-relaxed">Tratamos cada documento como se fosse nosso. Segurança de dados e protocolos rigorosos são nossa base.</p>
                         </div>
                         <div class="bg-slate-50 p-8 rounded-3xl border border-slate-100">
-                            <h4 class="font-bold text-blue-900 mb-3 text-lg">Proximidade</h4>
-                            <p class="text-sm leading-relaxed">Não somos apenas um site. Somos uma equipe humana disponível no seu celular para tirar dúvidas em tempo real.</p>
+                            <h4 id="about-card-title-2" class="font-bold text-blue-900 mb-3 text-lg">Proximidade</h4>
+                            <p id="about-card-copy-2" class="text-sm leading-relaxed">Não somos apenas um site. Somos uma equipe humana disponível no seu celular para tirar dúvidas em tempo real.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="group-detail" class="content-section hidden-section py-20 bg-white">
+        <section id="group-detail" class="content-section hidden-section py-20 md:py-24 bg-white">
             <div class="container mx-auto px-4">
-                <button onclick="navigateTo('home')" class="text-blue-600 font-bold mb-8 flex items-center hover:translate-x-[-5px] transition-transform">
+                <button id="group-back-btn" onclick="navigateTo('home')" class="text-blue-600 font-bold mb-8 flex items-center hover:translate-x-[-5px] transition-transform">
                     <i class="fa-solid fa-arrow-left mr-2"></i> Voltar ao Início
                 </button>
                 <div class="mb-12">
@@ -405,9 +986,9 @@
             </div>
         </section>
 
-        <section id="service-detail" class="content-section hidden-section py-20 bg-white">
+        <section id="service-detail" class="content-section hidden-section py-20 md:py-24 bg-white">
             <div class="container mx-auto px-4 max-w-4xl">
-                <button onclick="window.history.back()" class="text-blue-600 font-bold mb-8 flex items-center">
+                <button id="detail-back-btn" onclick="goBackToGroup()" class="text-blue-600 font-bold mb-8 flex items-center">
                     <i class="fa-solid fa-arrow-left mr-2"></i> Voltar
                 </button>
                 <div class="bg-slate-50 p-8 md:p-16 rounded-[3rem] border border-slate-100 shadow-sm">
@@ -418,14 +999,14 @@
                         <div>
                             <h4 class="text-xl font-bold mb-4 flex items-center">
                                 <span class="w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mr-3 text-sm">1</span>
-                                Visão Geral
+                                <span id="detail-section-title-1">Visão Geral</span>
                             </h4>
                             <p id="detail-about" class="pl-11">Descrição...</p>
                         </div>
                         <div>
                             <h4 class="text-xl font-bold mb-4 flex items-center">
                                 <span class="w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mr-3 text-sm">2</span>
-                                Nossa Consultoria
+                                <span id="detail-section-title-2">Nossa Consultoria</span>
                             </h4>
                             <p id="detail-help" class="pl-11">Como ajudamos...</p>
                         </div>
@@ -433,73 +1014,81 @@
 
                     <div class="mt-16 pt-10 border-t border-slate-200 flex flex-wrap gap-4">
                         <a href="https://wa.me/19784164422" target="_blank" class="btn-whatsapp text-white px-10 py-5 rounded-2xl font-bold flex items-center shadow-xl">
-                            <i class="fab fa-whatsapp mr-2 text-2xl"></i> Solicitar Agora
+                            <i class="fab fa-whatsapp mr-2 text-2xl"></i> <span id="detail-whatsapp-btn">Solicitar Agora</span>
                         </a>
-                        <button onclick="navigateTo('contact')" class="bg-blue-900 text-white px-10 py-5 rounded-2xl font-bold hover:bg-blue-800 transition shadow-xl">Preencher Formulário</button>
+                        <button id="detail-form-btn" onclick="navigateTo('contact')" class="bg-blue-900 text-white px-10 py-5 rounded-2xl font-bold hover:bg-blue-800 transition shadow-xl">Preencher Formulário</button>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="contact" class="content-section hidden-section py-20">
+        <section id="contact" class="content-section hidden-section py-20 md:py-24">
             <div class="container mx-auto px-4">
-                <div class="text-center mb-16">
-                    <h2 class="text-4xl font-extrabold mb-4">Estamos Prontos para Atender</h2>
-                    <p class="text-slate-500">Escolha o canal que for mais confortável para você.</p>
+                <div class="section-split-header mb-16">
+                    <div>
+                        <span id="contact-kicker" class="section-kicker mb-4">Contato</span>
+                        <h2 id="contact-title" class="text-4xl md:text-5xl font-semibold mb-4">Estamos Prontos para Atender</h2>
+                        <p id="contact-copy" class="text-slate-500 text-lg max-w-xl">Escolha o canal que for mais confortável para você.</p>
+                    </div>
+                    <div id="contact-side-note" class="section-side-note">
+                        A página precisa parecer atendimento sério, não landing page inflada. Por isso o contato agora entra mais limpo, direto e com menos ruído visual.
+                    </div>
                 </div>
-                <div class="grid lg:grid-cols-2 gap-16">
+                <div class="contact-shell p-6 md:p-8 lg:p-10">
+                <div class="grid lg:grid-cols-2 gap-10 lg:gap-16">
                     <div class="space-y-8">
-                        <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 flex items-start space-x-6">
+                        <div class="contact-info-card p-8 rounded-3xl flex items-start space-x-6">
                             <div class="w-14 h-14 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center text-2xl shrink-0"><i class="fa-solid fa-phone"></i></div>
                             <div>
-                                <h4 class="font-bold text-lg mb-1">Telefone / WhatsApp</h4>
-                                <p class="text-slate-500 mb-2">Segunda a Sexta, 9h às 18h (EST)</p>
+                                <h4 id="contact-card-title-1" class="font-bold text-lg mb-1">Telefone / WhatsApp</h4>
+                                <p id="contact-card-copy-1" class="text-slate-500 mb-2">Segunda a Sexta, 9h às 18h (EST)</p>
                                 <p class="text-2xl font-bold text-blue-900">+1 (978) 416-4422</p>
                             </div>
                         </div>
-                        <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 flex items-start space-x-6">
+                        <div class="contact-info-card p-8 rounded-3xl flex items-start space-x-6">
                             <div class="w-14 h-14 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center text-2xl shrink-0"><i class="fa-solid fa-location-dot"></i></div>
                             <div>
-                                <h4 class="font-bold text-lg mb-1">Nosso Escritório</h4>
+                                <h4 id="contact-card-title-2" class="font-bold text-lg mb-1">Nosso Escritório</h4>
                                 <p class="text-slate-500 mb-4">59 Merriam Ave #6B, Leominster, MA 01453</p>
                                 <div class="bg-slate-200 h-48 rounded-2xl flex items-center justify-center overflow-hidden">
-                                    <span class="text-slate-400 font-bold">Mapa Integrado</span>
+                                    <span id="contact-map-label" class="text-slate-400 font-bold">Mapa Integrado</span>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="bg-white p-10 md:p-14 rounded-[3rem] shadow-2xl border border-slate-50">
+                    <div class="contact-form-shell p-10 md:p-14 rounded-[3rem]">
                         <form id="contactForm" class="space-y-6">
                             <div class="grid md:grid-cols-2 gap-6">
-                                <input type="text" class="w-full bg-slate-50 border border-slate-100 p-4 rounded-2xl outline-none focus:ring-2 focus:ring-blue-600" placeholder="Nome Completo" required>
-                                <input type="tel" class="w-full bg-slate-50 border border-slate-100 p-4 rounded-2xl outline-none focus:ring-2 focus:ring-blue-600" placeholder="WhatsApp / Telefone" required>
+                                <input id="contact-input-name" type="text" class="w-full bg-slate-50 border border-slate-100 p-4 rounded-2xl outline-none focus:ring-2 focus:ring-blue-600" placeholder="Nome Completo" required>
+                                <input id="contact-input-phone" type="tel" class="w-full bg-slate-50 border border-slate-100 p-4 rounded-2xl outline-none focus:ring-2 focus:ring-blue-600" placeholder="WhatsApp / Telefone" required>
                             </div>
-                            <input type="email" class="w-full bg-slate-50 border border-slate-100 p-4 rounded-2xl outline-none focus:ring-2 focus:ring-blue-600" placeholder="Seu melhor E-mail">
-                            <select class="w-full bg-slate-50 border border-slate-100 p-4 rounded-2xl outline-none focus:ring-2 focus:ring-blue-600">
-                                <option>Qual sua necessidade?</option>
-                                <option>Passaporte / Consular</option>
-                                <option>Apostilamento / Documentos</option>
-                                <option>Imigração / Green Card</option>
-                                <option>Apoio Administrativo</option>
+                            <input id="contact-input-email" type="email" class="w-full bg-slate-50 border border-slate-100 p-4 rounded-2xl outline-none focus:ring-2 focus:ring-blue-600" placeholder="Seu melhor E-mail">
+                            <select id="contact-select-service" class="w-full bg-slate-50 border border-slate-100 p-4 rounded-2xl outline-none focus:ring-2 focus:ring-blue-600">
+                                <option id="contact-option-0">Qual sua necessidade?</option>
+                                <option id="contact-option-1">Passaporte / Consular</option>
+                                <option id="contact-option-2">Apostilamento / Documentos</option>
+                                <option id="contact-option-3">Imigração / Green Card</option>
+                                <option id="contact-option-4">Apoio Administrativo</option>
                             </select>
-                            <textarea rows="4" class="w-full bg-slate-50 border border-slate-100 p-4 rounded-2xl outline-none focus:ring-2 focus:ring-blue-600" placeholder="Como podemos te ajudar?"></textarea>
-                            <button type="submit" class="w-full bg-blue-900 text-white p-5 rounded-2xl font-bold shadow-xl hover:bg-blue-800 transition">Enviar Solicitação</button>
+                            <textarea id="contact-input-message" rows="4" class="w-full bg-slate-50 border border-slate-100 p-4 rounded-2xl outline-none focus:ring-2 focus:ring-blue-600" placeholder="Como podemos te ajudar?"></textarea>
+                            <button id="contact-submit-btn" type="submit" class="w-full bg-blue-900 text-white p-5 rounded-2xl font-bold shadow-xl hover:bg-blue-800 transition">Enviar Solicitação</button>
                         </form>
                     </div>
+                </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="bg-slate-900 text-white pt-24 pb-12">
+    <footer class="footer-shell bg-slate-900 text-white pt-20 md:pt-24 pb-12">
         <div class="container mx-auto px-4">
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-16 mb-20">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-16 mb-16 md:mb-20">
                 <div class="col-span-2">
                     <div class="flex items-center space-x-3 mb-8">
                         <div class="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center font-bold text-2xl">C</div>
-                        <span class="text-2xl font-bold tracking-tight">Century International</span>
+                        <span class="text-2xl font-bold tracking-tight">Century</span>
                     </div>
-                    <p class="text-slate-400 text-lg max-w-md leading-relaxed mb-8">
+                    <p id="footer-copy" class="text-slate-400 text-lg max-w-md leading-relaxed mb-8">
                         Sua parceira estratégica em serviços documentais, consulares e imigratórios para a comunidade internacional nos EUA.
                     </p>
                     <div class="flex space-x-4">
@@ -508,28 +1097,28 @@
                     </div>
                 </div>
                 <div>
-                    <h4 class="font-bold text-lg mb-8 underline decoration-blue-600 underline-offset-8">Serviços</h4>
+                    <h4 id="footer-services-title" class="font-bold text-lg mb-8 underline decoration-blue-600 underline-offset-8">Serviços</h4>
                     <ul class="space-y-4 text-slate-400 text-sm">
-                        <li><a href="#" onclick="renderGroupDetail('consular')" class="hover:text-white transition">Assessoria Consular</a></li>
-                        <li><a href="#" onclick="renderGroupDetail('documental')" class="hover:text-white transition">Apostilamento e Certidões</a></li>
-                        <li><a href="#" onclick="renderGroupDetail('immigration')" class="hover:text-white transition">Apoio Imigratório</a></li>
-                        <li><a href="#" onclick="navigateTo('contact')" class="hover:text-white transition">Consultoria Personalizada</a></li>
+                        <li><a id="footer-service-link-1" href="#" onclick="renderGroupDetail('consular')" class="hover:text-white transition">Assessoria Consular</a></li>
+                        <li><a id="footer-service-link-2" href="#" onclick="renderGroupDetail('documental')" class="hover:text-white transition">Apostilamento e Certidões</a></li>
+                        <li><a id="footer-service-link-3" href="#" onclick="renderGroupDetail('immigration')" class="hover:text-white transition">Apoio Imigratório</a></li>
+                        <li><a id="footer-service-link-4" href="#" onclick="navigateTo('contact')" class="hover:text-white transition">Consultoria Personalizada</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="font-bold text-lg mb-8 underline decoration-blue-600 underline-offset-8">Century Group</h4>
+                    <h4 id="footer-diff-title" class="font-bold text-lg mb-8 underline decoration-blue-600 underline-offset-8">Diferenciais</h4>
                     <ul class="space-y-4 text-slate-400 text-sm">
-                        <li><a href="#" class="hover:text-white transition">Century Technology</a></li>
-                        <li><a href="#" class="hover:text-white transition">Previdência no Brasil</a></li>
-                        <li><a href="#" class="hover:text-white transition font-bold text-blue-400">Trabalhe Conosco</a></li>
+                        <li><a id="footer-diff-link-1" href="#" class="hover:text-white transition">100% Seguro</a></li>
+                        <li><a id="footer-diff-link-2" href="#" class="hover:text-white transition">Atendimento em 3 idiomas</a></li>
+                        <li><a id="footer-diff-link-3" href="#" onclick="navigateTo('contact')" class="hover:text-white transition font-bold text-blue-400">Consulta Personalizada</a></li>
                     </ul>
                 </div>
             </div>
             <div class="border-t border-slate-800 pt-12 flex flex-col md:flex-row justify-between items-center text-xs text-slate-500">
-                <p>&copy; 2024 Century International Services. Todos os direitos reservados.</p>
+                <p id="footer-copyright">&copy; 2024 Century. Todos os direitos reservados.</p>
                 <div class="flex space-x-6 mt-4 md:mt-0">
-                    <a href="#" class="hover:text-white">Privacidade</a>
-                    <a href="#" class="hover:text-white">Termos</a>
+                    <a id="footer-privacy" href="#" class="hover:text-white">Privacidade</a>
+                    <a id="footer-terms" href="#" class="hover:text-white">Termos</a>
                 </div>
             </div>
         </div>
@@ -545,9 +1134,9 @@
                         icon: 'fa-passport',
                         desc: 'Especialistas em processos junto ao Consulado Brasileiro e órgãos estrangeiros.',
                         services: [
-                            { name: 'Passaporte Brasileiro', sub: 'Renovação e Primeira Via', about: 'Assessoria completa para solicitação ou renovação de passaportes, incluindo conferência de fotos e documentos.', help: 'Cuidamos do preenchimento do formulário RER e do agendamento no consulado de sua jurisdição.' },
-                            { name: 'Vistos Internacionais', sub: 'Assessoria para Turismo e Negócios', about: 'Orientação para vistos americanos, brasileiros e de outros países.', help: 'Revisão da documentação e preparação para entrevista quando necessário.' },
-                            { name: 'Autorização de Viagem', sub: 'Para menores de idade', about: 'Documento essencial para crianças que viajam sozinhas ou com apenas um dos pais.', help: 'Redigimos e orientamos sobre a autenticação necessária.' }
+                            { name: 'Passaporte Brasileiro', sub: 'Renovação e Primeira Via', about: 'Assessoria completa para solicitação ou renovação de passaportes, incluindo conferência de fotos e documentos.', help: 'Cuidamos do preenchimento do formulário RER, da triagem documental e do agendamento no consulado da sua jurisdição.' },
+                            { name: 'Vistos Internacionais', sub: 'Assessoria para Turismo e Negócios', about: 'Orientação para vistos americanos, brasileiros e de outros países conforme o objetivo da viagem.', help: 'Revisamos a documentação, organizamos o processo e preparamos você para cada etapa, inclusive entrevista quando aplicável.' },
+                            { name: 'Autorização de Viagem', sub: 'Para menores de idade', about: 'Documento essencial para crianças que viajam sozinhas ou acompanhadas por apenas um dos responsáveis.', help: 'Redigimos a autorização, orientamos sobre reconhecimento de firma e validamos os requisitos do destino.' }
                         ]
                     },
                     {
@@ -556,9 +1145,9 @@
                         icon: 'fa-stamp',
                         desc: 'Regularização documental para que seus documentos americanos valham no Brasil.',
                         services: [
-                            { name: 'Apostilamento de Haia', sub: 'Certificação Internacional', about: 'Processo que legaliza documentos emitidos nos EUA para uso em países do exterior.', help: 'Gestão rápida junto ao Secretário de Estado para autenticar diplomas, certidões e procurações.' },
-                            { name: 'Regularização de CPF', sub: 'Inscrição e Alteração', about: 'Serviço para brasileiros ou estrangeiros que precisam de CPF para transações no Brasil.', help: 'Processo realizado digitalmente com suporte direto para evitar erros de sistema.' },
-                            { name: 'Tradução Certificada', sub: 'Documentos Oficiais', about: 'Traduções juramentadas/certificadas aceitas por escolas e órgãos do governo.', help: 'Tradução técnica com selo de validade para processos oficiais.' }
+                            { name: 'Apostilamento de Haia', sub: 'Certificação Internacional', about: 'Processo que legaliza documentos emitidos nos EUA para uso em países signatários da Convenção da Haia.', help: 'Fazemos a conferência e a gestão do processo junto ao Secretário de Estado para autenticar diplomas, certidões e procurações.' },
+                            { name: 'Regularização de CPF', sub: 'Inscrição e Alteração', about: 'Serviço para brasileiros ou estrangeiros que precisam de CPF para transações, registros ou investimentos no Brasil.', help: 'Conduzimos o processo digitalmente com suporte direto, reduzindo erros cadastrais e retrabalho.' },
+                            { name: 'Tradução Certificada', sub: 'Documentos Oficiais', about: 'Traduções certificadas aceitas por escolas, consulados e órgãos do governo.', help: 'Entregamos tradução técnica com padrão documental adequado para processos oficiais e aplicações sensíveis.' }
                         ]
                     },
                     {
@@ -567,8 +1156,8 @@
                         icon: 'fa-scale-balanced',
                         desc: 'Orientação para famílias que buscam se estabelecer legalmente nos EUA.',
                         services: [
-                            { name: 'Ajuste de Status', sub: 'Green Card e Residência', about: 'Assessoria para quem busca regularizar a residência permanente nos Estados Unidos.', help: 'Organização da petição familiar e conferência de todos os formulários do USCIS.' },
-                            { name: 'Naturalização Americana', sub: 'Cidadania', about: 'Apoio para residentes permanentes que desejam se tornar cidadãos americanos.', help: 'Auxílio no preenchimento do N-400 e orientação sobre os requisitos de elegibilidade.' }
+                            { name: 'Ajuste de Status', sub: 'Green Card e Residência', about: 'Assessoria para quem busca regularizar a residência permanente nos Estados Unidos.', help: 'Organizamos a petição, revisamos formulários do USCIS e acompanhamos os documentos de suporte para reduzir falhas.' },
+                            { name: 'Naturalização Americana', sub: 'Cidadania', about: 'Apoio para residentes permanentes que desejam se tornar cidadãos americanos.', help: 'Auxiliamos no preenchimento do N-400, na revisão de elegibilidade e na preparação para as próximas etapas.' }
                         ]
                     }
                 ]
@@ -576,26 +1165,35 @@
             en: {
                 serviceGroups: [
                     {
-                        id: 'consular', title: 'Consular Services', icon: 'fa-passport', desc: 'Experts in processes with the Brazilian Consulate and foreign agencies.',
+                        id: 'consular',
+                        title: 'Consular Services',
+                        icon: 'fa-passport',
+                        desc: 'Experts in processes involving the Brazilian Consulate and foreign agencies.',
                         services: [
-                            { name: 'Brazilian Passport', sub: 'Renewal and First Issue', about: 'Complete assistance for passport applications.', help: 'We handle the RER form and scheduling.' },
-                            { name: 'International Visas', sub: 'Tourism & Business', about: 'Guidance for US, Brazilian, and other visas.', help: 'Document review and interview preparation.' },
-                            { name: 'Travel Authorization', sub: 'For Minors', about: 'Essential for children traveling alone or with one parent.', help: 'Drafting and guidance on notarization.' }
+                            { name: 'Brazilian Passport', sub: 'Renewal and First Issue', about: 'Complete assistance for passport applications or renewals, including photo and document review.', help: 'We handle the RER form, document screening, and consulate appointment scheduling in your jurisdiction.' },
+                            { name: 'International Visas', sub: 'Tourism and Business Support', about: 'Guidance for US, Brazilian, and other international visas based on your travel purpose.', help: 'We review documents, organize the process, and prepare you for every step, including interviews when needed.' },
+                            { name: 'Travel Authorization', sub: 'For Minors', about: 'An essential document for children traveling alone or with only one parent or guardian.', help: 'We draft the authorization, guide you on notarization, and validate destination requirements.' }
                         ]
                     },
                     {
-                        id: 'documental', title: 'Apostille & Documents', icon: 'fa-stamp', desc: 'Document regularization for use in Brazil and abroad.',
+                        id: 'documental',
+                        title: 'Apostille and Documents',
+                        icon: 'fa-stamp',
+                        desc: 'Document regularization so your US documents are valid in Brazil and abroad.',
                         services: [
-                            { name: 'Hague Apostille', sub: 'International Certification', about: 'Legalizes US documents for use abroad.', help: 'Fast processing with the Secretary of State.' },
-                            { name: 'CPF Regularization', sub: 'Registration & Update', about: 'Service for those needing a Brazilian tax ID.', help: 'Fully digital process with direct support.' },
-                            { name: 'Certified Translation', sub: 'Official Documents', about: 'Translations accepted by schools and government.', help: 'Technical translation with validity seal.' }
+                            { name: 'Hague Apostille', sub: 'International Certification', about: 'The process that legalizes US-issued documents for use in Hague Convention countries.', help: 'We review and manage the process with the Secretary of State to authenticate diplomas, certificates, and powers of attorney.' },
+                            { name: 'CPF Registration', sub: 'Registration and Updates', about: 'A service for Brazilians or foreigners who need a Brazilian tax ID for transactions, records, or investments.', help: 'We manage the process digitally with direct support, reducing registration errors and rework.' },
+                            { name: 'Certified Translation', sub: 'Official Documents', about: 'Certified translations accepted by schools, consulates, and government agencies.', help: 'We provide technical translations with the formal standard required for official and sensitive applications.' }
                         ]
                     },
                     {
-                        id: 'immigration', title: 'Immigration Support', icon: 'fa-scale-balanced', desc: 'Guidance for families seeking legal status in the US.',
+                        id: 'immigration',
+                        title: 'Immigration Support',
+                        icon: 'fa-scale-balanced',
+                        desc: 'Guidance for families seeking to build legal status in the United States.',
                         services: [
-                            { name: 'Adjustment of Status', sub: 'Green Card & Residency', about: 'Assistance for permanent residency.', help: 'Family petition organization and USCIS form review.' },
-                            { name: 'US Naturalization', sub: 'Citizenship', about: 'Support for residents wanting to become US citizens.', help: 'Assistance with N-400 and eligibility guidance.' }
+                            { name: 'Adjustment of Status', sub: 'Green Card and Residency', about: 'Support for those pursuing permanent residency in the United States.', help: 'We organize the petition, review USCIS forms, and structure the supporting documents to reduce mistakes.' },
+                            { name: 'US Naturalization', sub: 'Citizenship', about: 'Support for permanent residents who want to become US citizens.', help: 'We assist with the N-400, eligibility review, and preparation for the next stages of the process.' }
                         ]
                     }
                 ]
@@ -603,53 +1201,482 @@
             es: {
                 serviceGroups: [
                     {
-                        id: 'consular', title: 'Servicios Consulares', icon: 'fa-passport', desc: 'Expertos en procesos ante el Consulado de Brasil y agencias extranjeras.',
+                        id: 'consular',
+                        title: 'Servicios Consulares',
+                        icon: 'fa-passport',
+                        desc: 'Expertos en trámites ante el Consulado de Brasil y organismos extranjeros.',
                         services: [
-                            { name: 'Pasaporte Brasileño', sub: 'Renovación y Primera Vez', about: 'Asistencia completa para pasaportes.', help: 'Nos encargamos del formulario RER y citas.' },
-                            { name: 'Visas Internacionales', sub: 'Turismo y Negocios', about: 'Orientación para visas de EE. UU., Brasil y otros.', help: 'Revisión de documentos y preparación de entrevistas.' },
-                            { name: 'Autorización de Viaje', sub: 'Para Menores', about: 'Esencial para niños que viajan solos o con un padre.', help: 'Redacción y orientación sobre notarización.' }
+                            { name: 'Pasaporte Brasileño', sub: 'Renovación y Primera Emisión', about: 'Asistencia completa para solicitar o renovar pasaportes, incluyendo revisión de fotos y documentos.', help: 'Nos encargamos del formulario RER, de la revisión documental y de la cita consular en su jurisdicción.' },
+                            { name: 'Visas Internacionales', sub: 'Asesoría para Turismo y Negocios', about: 'Orientación para visas de EE. UU., Brasil y otros países según el objetivo del viaje.', help: 'Revisamos la documentación, organizamos el proceso y lo preparamos para cada etapa, incluida la entrevista cuando sea necesaria.' },
+                            { name: 'Autorización de Viaje', sub: 'Para Menores de Edad', about: 'Documento esencial para niños que viajan solos o acompañados por solo uno de sus responsables.', help: 'Redactamos la autorización, orientamos sobre la notarización y validamos los requisitos del destino.' }
                         ]
                     },
                     {
-                        id: 'documental', title: 'Apostilla y Documentos', icon: 'fa-stamp', desc: 'Regularización de documentos para uso internacional.',
+                        id: 'documental',
+                        title: 'Apostilla y Documentos',
+                        icon: 'fa-stamp',
+                        desc: 'Regularización documental para que sus documentos de EE. UU. sean válidos en Brasil y en el exterior.',
                         services: [
-                            { name: 'Apostilla de La Haya', sub: 'Certificación Internacional', about: 'Legaliza documentos de EE. UU. para uso en el exterior.', help: 'Trámite rápido con la Secretaría de Estado.' },
-                            { name: 'Regularización de CPF', sub: 'Registro y Actualización', about: 'Servicio para quienes necesitan un ID fiscal brasileño.', help: 'Proceso 100% digital con soporte directo.' },
-                            { name: 'Traducción Certificada', sub: 'Documentos Oficiales', about: 'Traducciones aceptadas por el gobierno.', help: 'Traducción técnica con sello de validez.' }
+                            { name: 'Apostilla de La Haya', sub: 'Certificación Internacional', about: 'Proceso que legaliza documentos emitidos en EE. UU. para uso en países del Convenio de La Haya.', help: 'Revisamos y gestionamos el trámite ante la Secretaría de Estado para autenticar diplomas, actas y poderes.' },
+                            { name: 'Registro de CPF', sub: 'Alta y Actualización', about: 'Servicio para brasileños o extranjeros que necesitan CPF para transacciones, registros o inversiones en Brasil.', help: 'Realizamos el proceso digitalmente con soporte directo para reducir errores de registro y retrabajo.' },
+                            { name: 'Traducción Certificada', sub: 'Documentos Oficiales', about: 'Traducciones certificadas aceptadas por escuelas, consulados y organismos gubernamentales.', help: 'Entregamos traducciones técnicas con el estándar documental adecuado para procesos oficiales y sensibles.' }
                         ]
                     },
                     {
-                        id: 'immigration', title: 'Soporte Migratorio', icon: 'fa-scale-balanced', desc: 'Orientación para familias que buscan estatus legal en EE. UU.',
+                        id: 'immigration',
+                        title: 'Soporte Migratorio',
+                        icon: 'fa-scale-balanced',
+                        desc: 'Orientación para familias que buscan establecer su estatus legal en Estados Unidos.',
                         services: [
-                            { name: 'Ajuste de Estatus', sub: 'Green Card y Residencia', about: 'Asistencia para residencia permanente.', help: 'Organización de petición familiar y revisión de formularios.' },
-                            { name: 'Naturalización EE. UU.', sub: 'Ciudadanía', about: 'Apoyo para residentes que desean ser ciudadanos.', help: 'Asistencia con N-400 y requisitos de elegibilidad.' }
+                            { name: 'Ajuste de Estatus', sub: 'Green Card y Residencia', about: 'Asesoría para quienes buscan regularizar la residencia permanente en Estados Unidos.', help: 'Organizamos la petición, revisamos formularios del USCIS y estructuramos los documentos de respaldo para reducir errores.' },
+                            { name: 'Naturalización en EE. UU.', sub: 'Ciudadanía', about: 'Apoyo para residentes permanentes que desean convertirse en ciudadanos estadounidenses.', help: 'Ayudamos con el N-400, la revisión de elegibilidad y la preparación para las siguientes etapas del proceso.' }
                         ]
                     }
                 ]
             }
         };
 
+        const uiContent = {
+            pt: {
+                htmlLang: 'pt-BR',
+                pageTitle: 'Century | Soluções Consulares e Imigração',
+                heroTitle: 'Sua ponte segura para <span class="text-blue-600">serviços globais.</span>',
+                heroSub: 'Simplificamos processos burocráticos, consulares e documentais para brasileiros e latinos com agilidade de despachante e seriedade consultiva.',
+                nav: ['Início', 'Quem Somos', 'Serviços', 'Contato'],
+                mobileMenuTitle: 'MENU',
+                mobileFeaturedServicesTitle: 'Serviços em Destaque',
+                floatingWhatsappLabel: 'Fale conosco!',
+                heroPill: 'SUPORTE ESPECIALIZADO NOS EUA',
+                quickLinks: ['Passaporte Brasileiro', 'Apostilamento de Haia', 'Regularização de CPF', 'Green Card', 'Tradução Certificada', 'Naturalização'],
+                heroServicesBtn: 'Ver Todos os Serviços',
+                heroConsultBtn: 'Consulta Gratuita',
+                heroProof: [
+                    ['Triagem documental com critério', 'Reduzimos retrabalho antes que o processo chegue à etapa crítica.'],
+                    ['Atendimento direto, sem robô', 'O cliente fala com gente de verdade para resolver casos reais.']
+                ],
+                trustBadges: ['100% Seguro', 'Documentos Conferidos', 'Resposta Ágil', 'Atendimento Humano'],
+                heroSecurityLabel: 'Processos',
+                heroSecurityTitle: '100% Seguros',
+                heroStatusLabel: 'Selo Century',
+                heroStatusTitle: 'Atendimento verificado e protegido',
+                heroStatusItems: ['Consultoria Premium', 'Dados Protegidos'],
+                stats: ['Documentos Emitidos', 'Anos de Experiência', 'Idiomas Disponíveis', 'Foco no Cliente'],
+                servicesTitle: 'Como podemos ajudar hoje?',
+                servicesKicker: 'Serviços Century',
+                servicesIntro: 'Selecione uma categoria para ver os serviços especializados que oferecemos.',
+                servicesSideNote: 'Cada frente foi organizada para parecer menos catálogo e mais consultoria: você entra por necessidade, entende o escopo e avança rápido para o atendimento.',
+                serviceCardCta: 'Conhecer Serviços',
+                confidencePills: ['Padrão Century', 'Atendimento Consultivo'],
+                confidenceTitle: 'Mais camadas de confiança em cada atendimento.',
+                confidenceCopy: 'A Century combina conferência documental, suporte multicanal e acompanhamento próximo para reduzir erros, acelerar etapas e dar visibilidade ao cliente durante todo o processo.',
+                confidenceCards: [
+                    ['100% Seguro', 'Checklist e validação para evitar retrabalho e reduzir riscos na entrega.'],
+                    ['Processo Transparente', 'Você entende o que está sendo feito, o que falta e qual é o próximo passo.'],
+                    ['3 Idiomas', 'Comunicação clara em português, inglês e espanhol.'],
+                    ['Suporte de Verdade', 'Atendimento humano para dúvidas reais, sem fluxo genérico ou abandono.']
+                ],
+                badgePanelLabel: 'Badges Century',
+                badgePanelTitle: 'O que reforça a confiança no site',
+                badgeItems: [
+                    ['Atendimento verificado', 'Equipe preparada para orientar processos consulares, documentais e migratórios.'],
+                    ['Resposta rápida', 'Estrutura de atendimento pensada para triagem e retorno ágil.'],
+                    ['Foco total no cliente', 'Cada etapa do site reforça segurança, proximidade e clareza.']
+                ],
+                aboutPreviewLabel: 'Sobre a Century',
+                aboutPreviewTitle: 'Mais que um despachante, um parceiro para sua jornada.',
+                aboutPreviewCopy: 'Acreditamos que a imigração e a vida internacional não precisam ser sinônimos de dor de cabeça. Nossa metodologia une o rigor técnico à facilidade de atendimento pelo WhatsApp, garantindo que você nunca se sinta sozinho no processo.',
+                aboutPreviewChecks: ['Atendimento Nativo (PT/EN/ES)', 'Protocolos Digitalizados', 'Preços Transparentes', 'Suporte Pós-Entrega'],
+                aboutPreviewBtn: 'Conhecer Nossa História <i class="fa-solid fa-arrow-right ml-3"></i>',
+                testimonialsLabel: 'Histórias de Sucesso',
+                testimonialsTitle: 'O que nossos clientes dizem',
+                testimonialCopies: [
+                    '"A equipe da Century resolveu meu apostilamento em tempo recorde. Atendimento impecável pelo WhatsApp, me senti seguro o tempo todo."',
+                    '"Consegui renovar meu passaporte sem dor de cabeça. Eles cuidaram de todos os formulários e me orientaram perfeitamente para o dia do agendamento."',
+                    '"Profissionalismo define. Usei o serviço de tradução certificada e foi aceito de primeira pela imigração. Recomendo de olhos fechados."'
+                ],
+                testimonialLocations: ['Flórida, EUA', 'Massachusetts, EUA', 'Nova York, EUA'],
+                faqTitle: 'Dúvidas Frequentes',
+                faqKicker: 'FAQ',
+                faqItems: [
+                    ['Vocês fazem renovação de passaporte brasileiro?', 'Sim. Prestamos assessoria completa para renovação de passaportes brasileiros junto aos consulados nos EUA, cuidando do preenchimento e agendamento.'],
+                    ['O que é o Apostilamento de Haia?', 'É a certificação que torna um documento americano válido legalmente no Brasil e em outros países signatários. É essencial para casamentos, estudos e registros.']
+                ],
+                aboutTitle: 'Nossa Missão Internacional',
+                aboutQuote: '"Conectando pessoas aos seus direitos, documentos e sonhos, não importa onde elas estejam."',
+                aboutCopy: 'A <strong>Century</strong> foi fundada para suprir o gap entre a burocracia governamental e a necessidade real das famílias imigrantes. Sabemos que lidar com consulados, agências de imigração e registros civis pode ser intimidador.',
+                aboutCards: [
+                    ['Confiabilidade', 'Tratamos cada documento como se fosse nosso. Segurança de dados e protocolos rigorosos são nossa base.'],
+                    ['Proximidade', 'Não somos apenas um site. Somos uma equipe humana disponível no seu celular para tirar dúvidas em tempo real.']
+                ],
+                groupBackBtn: '<i class="fa-solid fa-arrow-left mr-2"></i> Voltar ao Início',
+                detailBackBtn: '<i class="fa-solid fa-arrow-left mr-2"></i> Voltar',
+                detailSectionTitles: ['Visão Geral', 'Nossa Consultoria'],
+                detailWhatsAppBtn: 'Solicitar Agora',
+                detailFormBtn: 'Preencher Formulário',
+                contactTitle: 'Estamos Prontos para Atender',
+                contactKicker: 'Contato',
+                contactCopy: 'Escolha o canal que for mais confortável para você.',
+                contactSideNote: 'A página precisa parecer atendimento sério, não landing page inflada. Por isso o contato agora entra mais limpo, direto e com menos ruído visual.',
+                contactCards: ['Telefone / WhatsApp', 'Segunda a Sexta, 9h às 18h (EST)', 'Nosso Escritório', 'Mapa Integrado'],
+                contactPlaceholders: ['Nome Completo', 'WhatsApp / Telefone', 'Seu melhor E-mail', 'Como podemos te ajudar?'],
+                contactOptions: ['Qual sua necessidade?', 'Passaporte / Consular', 'Apostilamento / Documentos', 'Imigração / Green Card', 'Apoio Administrativo'],
+                contactSubmitBtn: 'Enviar Solicitação',
+                footerCopy: 'Sua parceira estratégica em serviços documentais, consulares e imigratórios para a comunidade internacional nos EUA.',
+                footerServicesTitle: 'Serviços',
+                footerServiceLinks: ['Assessoria Consular', 'Apostilamento e Certidões', 'Apoio Imigratório', 'Consultoria Personalizada'],
+                footerDiffTitle: 'Diferenciais',
+                footerDiffLinks: ['100% Seguro', 'Atendimento em 3 idiomas', 'Consulta Personalizada'],
+                footerCopyright: '&copy; 2024 Century. Todos os direitos reservados.',
+                footerPrivacy: 'Privacidade',
+                footerTerms: 'Termos',
+                contactAlert: 'Recebemos sua mensagem! Nossa equipe entrará em contato em breve via WhatsApp ou E-mail.'
+            },
+            en: {
+                htmlLang: 'en',
+                pageTitle: 'Century | Consular and Immigration Solutions',
+                heroTitle: 'Your secure bridge to <span class="text-blue-600">global services.</span>',
+                heroSub: 'We simplify bureaucratic, consular, and document processes for Brazilians, Latinos, and international families with speed and serious guidance.',
+                nav: ['Home', 'About Us', 'Services', 'Contact'],
+                mobileMenuTitle: 'MENU',
+                mobileFeaturedServicesTitle: 'Featured Services',
+                floatingWhatsappLabel: 'Talk to us!',
+                heroPill: 'SPECIALIZED SUPPORT IN THE USA',
+                quickLinks: ['Brazilian Passport', 'Hague Apostille', 'CPF Registration', 'Green Card', 'Certified Translation', 'Naturalization'],
+                heroServicesBtn: 'View All Services',
+                heroConsultBtn: 'Free Consultation',
+                heroProof: [
+                    ['Document screening with real criteria', 'We reduce rework before the case reaches a critical step.'],
+                    ['Direct support, no bot script', 'Clients speak with real people to solve real cases.']
+                ],
+                trustBadges: ['100% Secure', 'Verified Documents', 'Fast Response', 'Human Support'],
+                heroSecurityLabel: 'Processes',
+                heroSecurityTitle: '100% Secure',
+                heroStatusLabel: 'Century Seal',
+                heroStatusTitle: 'Verified and protected support',
+                heroStatusItems: ['Premium Consulting', 'Protected Data'],
+                stats: ['Documents Delivered', 'Years of Experience', 'Languages Available', 'Client Focus'],
+                servicesTitle: 'How can we help today?',
+                servicesKicker: 'Century Services',
+                servicesIntro: 'Choose a category to explore the specialized services we offer.',
+                servicesSideNote: 'Each front was organized to feel less like a catalog and more like advisory work: you enter by need, understand the scope, and move quickly toward service.',
+                serviceCardCta: 'Explore Services',
+                confidencePills: ['Century Standard', 'Consultative Support'],
+                confidenceTitle: 'More layers of trust in every case.',
+                confidenceCopy: 'Century combines document review, multi-channel support, and close follow-up to reduce mistakes, accelerate timelines, and keep clients informed throughout the process.',
+                confidenceCards: [
+                    ['100% Secure', 'Checklists and validation help prevent rework and reduce delivery risks.'],
+                    ['Transparent Process', 'You always understand what is being done, what is pending, and what comes next.'],
+                    ['3 Languages', 'Clear communication in Portuguese, English, and Spanish.'],
+                    ['Real Support', 'Human assistance for real questions, without generic flows or abandonment.']
+                ],
+                badgePanelLabel: 'Century Badges',
+                badgePanelTitle: 'What reinforces trust across the website',
+                badgeItems: [
+                    ['Verified support', 'A trained team ready to guide consular, document, and immigration processes.'],
+                    ['Fast response', 'A service structure designed for quick triage and follow-up.'],
+                    ['Full client focus', 'Every stage of the site reinforces security, clarity, and proximity.']
+                ],
+                aboutPreviewLabel: 'About Century',
+                aboutPreviewTitle: 'More than a filing service, a partner for your journey.',
+                aboutPreviewCopy: 'We believe immigration and international life should not be synonymous with stress. Our method combines technical rigor with easy WhatsApp communication so you never feel alone in the process.',
+                aboutPreviewChecks: ['Native support (PT/EN/ES)', 'Digitized workflows', 'Transparent pricing', 'Post-delivery support'],
+                aboutPreviewBtn: 'Learn Our Story <i class="fa-solid fa-arrow-right ml-3"></i>',
+                testimonialsLabel: 'Success Stories',
+                testimonialsTitle: 'What our clients say',
+                testimonialCopies: [
+                    '"Century handled my apostille in record time. The WhatsApp support was flawless, and I felt safe throughout the process."',
+                    '"I renewed my passport without any hassle. They handled every form and prepared me perfectly for appointment day."',
+                    '"Professionalism defines them. I used the certified translation service and it was accepted by immigration on the first try."'
+                ],
+                testimonialLocations: ['Florida, USA', 'Massachusetts, USA', 'New York, USA'],
+                faqTitle: 'Frequently Asked Questions',
+                faqKicker: 'FAQ',
+                faqItems: [
+                    ['Do you handle Brazilian passport renewals?', 'Yes. We provide full support for Brazilian passport renewals through consulates in the US, including form completion and appointment scheduling.'],
+                    ['What is the Hague Apostille?', 'It is the certification that makes a US document legally valid in Brazil and other signatory countries. It is essential for marriages, studies, and registrations.']
+                ],
+                aboutTitle: 'Our International Mission',
+                aboutQuote: '"Connecting people to their rights, documents, and goals, no matter where they are."',
+                aboutCopy: '<strong>Century</strong> was created to bridge the gap between government bureaucracy and the real needs of immigrant families. We know that dealing with consulates, immigration agencies, and civil records can feel intimidating.',
+                aboutCards: [
+                    ['Reliability', 'We treat every document as if it were our own. Data security and rigorous protocols are the foundation of our work.'],
+                    ['Closeness', 'We are not just a website. We are a real team available on your phone to answer questions in real time.']
+                ],
+                groupBackBtn: '<i class="fa-solid fa-arrow-left mr-2"></i> Back to Home',
+                detailBackBtn: '<i class="fa-solid fa-arrow-left mr-2"></i> Back',
+                detailSectionTitles: ['Overview', 'How We Help'],
+                detailWhatsAppBtn: 'Request Now',
+                detailFormBtn: 'Fill Out the Form',
+                contactTitle: 'We Are Ready to Help',
+                contactKicker: 'Contact',
+                contactCopy: 'Choose the channel that feels most comfortable for you.',
+                contactSideNote: 'The page needs to feel like serious service, not an inflated landing page. That is why contact now comes in cleaner, more direct, and with less visual noise.',
+                contactCards: ['Phone / WhatsApp', 'Monday to Friday, 9 AM to 6 PM (EST)', 'Our Office', 'Integrated Map'],
+                contactPlaceholders: ['Full Name', 'WhatsApp / Phone', 'Your best email', 'How can we help you?'],
+                contactOptions: ['What do you need?', 'Passport / Consular', 'Apostille / Documents', 'Immigration / Green Card', 'Administrative Support'],
+                contactSubmitBtn: 'Send Request',
+                footerCopy: 'Your strategic partner for document, consular, and immigration services for the international community in the USA.',
+                footerServicesTitle: 'Services',
+                footerServiceLinks: ['Consular Advisory', 'Apostille and Certificates', 'Immigration Support', 'Personalized Consulting'],
+                footerDiffTitle: 'Highlights',
+                footerDiffLinks: ['100% Secure', 'Support in 3 languages', 'Personalized Consultation'],
+                footerCopyright: '&copy; 2024 Century. All rights reserved.',
+                footerPrivacy: 'Privacy',
+                footerTerms: 'Terms',
+                contactAlert: 'We received your message. Our team will contact you soon via WhatsApp or email.'
+            },
+            es: {
+                htmlLang: 'es',
+                pageTitle: 'Century | Soluciones Consulares e Inmigración',
+                heroTitle: 'Tu puente seguro hacia <span class="text-blue-600">servicios globales.</span>',
+                heroSub: 'Simplificamos trámites burocráticos, consulares y documentales para brasileños, latinos y familias internacionales con agilidad y seriedad consultiva.',
+                nav: ['Inicio', 'Quiénes Somos', 'Servicios', 'Contacto'],
+                mobileMenuTitle: 'MENÚ',
+                mobileFeaturedServicesTitle: 'Servicios Destacados',
+                floatingWhatsappLabel: 'Habla con nosotros',
+                heroPill: 'SOPORTE ESPECIALIZADO EN EE. UU.',
+                quickLinks: ['Pasaporte Brasileño', 'Apostilla de La Haya', 'Registro de CPF', 'Green Card', 'Traducción Certificada', 'Naturalización'],
+                heroServicesBtn: 'Ver Todos los Servicios',
+                heroConsultBtn: 'Consulta Gratuita',
+                heroProof: [
+                    ['Revisión documental con criterio', 'Reducimos retrabajo antes de que el caso llegue a una etapa crítica.'],
+                    ['Atención directa, sin robot', 'El cliente habla con personas reales para resolver casos reales.']
+                ],
+                trustBadges: ['100% Seguro', 'Documentos Verificados', 'Respuesta Ágil', 'Atención Humana'],
+                heroSecurityLabel: 'Procesos',
+                heroSecurityTitle: '100% Seguros',
+                heroStatusLabel: 'Sello Century',
+                heroStatusTitle: 'Atención verificada y protegida',
+                heroStatusItems: ['Consultoría Premium', 'Datos Protegidos'],
+                stats: ['Documentos Entregados', 'Años de Experiencia', 'Idiomas Disponibles', 'Enfoque en el Cliente'],
+                servicesTitle: '¿Cómo podemos ayudarte hoy?',
+                servicesKicker: 'Servicios Century',
+                servicesIntro: 'Selecciona una categoría para conocer los servicios especializados que ofrecemos.',
+                servicesSideNote: 'Cada frente fue organizada para sentirse menos como catálogo y más como consultoría: entras por necesidad, entiendes el alcance y avanzas rápido hacia la atención.',
+                serviceCardCta: 'Conocer Servicios',
+                confidencePills: ['Estándar Century', 'Atención Consultiva'],
+                confidenceTitle: 'Más capas de confianza en cada atención.',
+                confidenceCopy: 'Century combina revisión documental, soporte multicanal y seguimiento cercano para reducir errores, acelerar etapas y dar visibilidad al cliente durante todo el proceso.',
+                confidenceCards: [
+                    ['100% Seguro', 'Listas de control y validación para evitar retrabajo y reducir riesgos de entrega.'],
+                    ['Proceso Transparente', 'Entiendes qué se está haciendo, qué falta y cuál es el siguiente paso.'],
+                    ['3 Idiomas', 'Comunicación clara en portugués, inglés y español.'],
+                    ['Soporte Real', 'Atención humana para dudas reales, sin flujos genéricos ni abandono.']
+                ],
+                badgePanelLabel: 'Insignias Century',
+                badgePanelTitle: 'Qué refuerza la confianza en el sitio',
+                badgeItems: [
+                    ['Atención verificada', 'Equipo preparado para orientar procesos consulares, documentales y migratorios.'],
+                    ['Respuesta rápida', 'Estructura de atención pensada para una evaluación y respuesta ágiles.'],
+                    ['Enfoque total en el cliente', 'Cada etapa del sitio refuerza seguridad, cercanía y claridad.']
+                ],
+                aboutPreviewLabel: 'Sobre Century',
+                aboutPreviewTitle: 'Más que un gestor, un aliado para tu camino.',
+                aboutPreviewCopy: 'Creemos que la inmigración y la vida internacional no tienen por qué ser sinónimo de dolor de cabeza. Nuestra metodología une rigor técnico y facilidad de atención por WhatsApp para que nunca te sientas solo en el proceso.',
+                aboutPreviewChecks: ['Atención nativa (PT/EN/ES)', 'Protocolos digitalizados', 'Precios transparentes', 'Soporte posterior a la entrega'],
+                aboutPreviewBtn: 'Conocer Nuestra Historia <i class="fa-solid fa-arrow-right ml-3"></i>',
+                testimonialsLabel: 'Historias de Éxito',
+                testimonialsTitle: 'Lo que dicen nuestros clientes',
+                testimonialCopies: [
+                    '"El equipo de Century resolvió mi apostilla en tiempo récord. La atención por WhatsApp fue impecable y me sentí seguro durante todo el proceso."',
+                    '"Renové mi pasaporte sin complicaciones. Se encargaron de todos los formularios y me orientaron perfectamente para el día de la cita."',
+                    '"El profesionalismo los define. Usé el servicio de traducción certificada y fue aceptado por inmigración a la primera."'
+                ],
+                testimonialLocations: ['Florida, EE. UU.', 'Massachusetts, EE. UU.', 'Nueva York, EE. UU.'],
+                faqTitle: 'Preguntas Frecuentes',
+                faqKicker: 'FAQ',
+                faqItems: [
+                    ['¿Hacen renovación de pasaporte brasileño?', 'Sí. Brindamos asesoría completa para la renovación de pasaportes brasileños ante los consulados en EE. UU., incluyendo formularios y cita.'],
+                    ['¿Qué es la Apostilla de La Haya?', 'Es la certificación que hace que un documento emitido en EE. UU. sea legalmente válido en Brasil y otros países firmantes. Es esencial para matrimonios, estudios y registros.']
+                ],
+                aboutTitle: 'Nuestra Misión Internacional',
+                aboutQuote: '"Conectando a las personas con sus derechos, documentos y metas, sin importar dónde estén."',
+                aboutCopy: '<strong>Century</strong> nació para cerrar la brecha entre la burocracia gubernamental y la necesidad real de las familias inmigrantes. Sabemos que tratar con consulados, agencias de inmigración y registros civiles puede ser intimidante.',
+                aboutCards: [
+                    ['Confiabilidad', 'Tratamos cada documento como si fuera nuestro. La seguridad de datos y los protocolos rigurosos son nuestra base.'],
+                    ['Cercanía', 'No somos solo un sitio web. Somos un equipo humano disponible en tu celular para resolver dudas en tiempo real.']
+                ],
+                groupBackBtn: '<i class="fa-solid fa-arrow-left mr-2"></i> Volver al Inicio',
+                detailBackBtn: '<i class="fa-solid fa-arrow-left mr-2"></i> Volver',
+                detailSectionTitles: ['Vista General', 'Nuestra Consultoría'],
+                detailWhatsAppBtn: 'Solicitar Ahora',
+                detailFormBtn: 'Completar Formulario',
+                contactTitle: 'Estamos Listos para Atenderte',
+                contactKicker: 'Contacto',
+                contactCopy: 'Elige el canal que te resulte más cómodo.',
+                contactSideNote: 'La página debe sentirse como atención seria, no como una landing inflada. Por eso el contacto ahora entra más limpio, más directo y con menos ruido visual.',
+                contactCards: ['Teléfono / WhatsApp', 'Lunes a Viernes, 9:00 a 18:00 (EST)', 'Nuestra Oficina', 'Mapa Integrado'],
+                contactPlaceholders: ['Nombre Completo', 'WhatsApp / Teléfono', 'Tu mejor correo electrónico', '¿Cómo podemos ayudarte?'],
+                contactOptions: ['¿Cuál es tu necesidad?', 'Pasaporte / Consular', 'Apostilla / Documentos', 'Inmigración / Green Card', 'Apoyo Administrativo'],
+                contactSubmitBtn: 'Enviar Solicitud',
+                footerCopy: 'Tu aliada estratégica en servicios documentales, consulares y migratorios para la comunidad internacional en EE. UU.',
+                footerServicesTitle: 'Servicios',
+                footerServiceLinks: ['Asesoría Consular', 'Apostilla y Certificados', 'Apoyo Migratorio', 'Consultoría Personalizada'],
+                footerDiffTitle: 'Diferenciales',
+                footerDiffLinks: ['100% Seguro', 'Atención en 3 idiomas', 'Consulta Personalizada'],
+                footerCopyright: '&copy; 2024 Century. Todos los derechos reservados.',
+                footerPrivacy: 'Privacidad',
+                footerTerms: 'Términos',
+                contactAlert: 'Recibimos tu mensaje. Nuestro equipo se pondrá en contacto contigo pronto por WhatsApp o correo electrónico.'
+            }
+        };
+
         let currentLang = 'pt';
+        let currentGroupId = 'consular';
+        let currentServiceIndex = 0;
+
+        function setText(id, text) {
+            const element = document.getElementById(id);
+            if (element) element.textContent = text;
+        }
+
+        function setHTML(id, html) {
+            const element = document.getElementById(id);
+            if (element) element.innerHTML = html;
+        }
+
+        function setPlaceholder(id, text) {
+            const element = document.getElementById(id);
+            if (element) element.placeholder = text;
+        }
+
+        function updateLanguageButtons() {
+            ['pt', 'en', 'es'].forEach(lang => {
+                const button = document.getElementById(`lang-btn-${lang}`);
+                if (!button) return;
+                button.classList.toggle('lang-btn-active', lang === currentLang);
+            });
+        }
+
+        function renderStaticContent() {
+            const content = uiContent[currentLang];
+
+            document.documentElement.lang = content.htmlLang;
+            document.title = content.pageTitle;
+
+            setText('nav-home', content.nav[0]);
+            setText('nav-about', content.nav[1]);
+            setText('nav-services', content.nav[2]);
+            setText('nav-contact', content.nav[3]);
+            setText('mobile-menu-title', content.mobileMenuTitle);
+            setText('mobile-nav-home', content.nav[0]);
+            setText('mobile-nav-about', content.nav[1]);
+            setText('mobile-nav-services', content.nav[2]);
+            setText('mobile-nav-contact', content.nav[3]);
+            setText('mobile-featured-services-title', content.mobileFeaturedServicesTitle);
+            setText('header-whatsapp-label', 'WhatsApp');
+            setText('floating-whatsapp-label', content.floatingWhatsappLabel);
+
+            setText('hero-pill', content.heroPill);
+            setHTML('hero-title', content.heroTitle);
+            setText('hero-sub', content.heroSub);
+            content.quickLinks.forEach((item, index) => setText(`quick-link-${index + 1}`, item));
+            setText('hero-services-btn', content.heroServicesBtn);
+            setText('hero-consult-btn', content.heroConsultBtn);
+            content.heroProof.forEach((item, index) => {
+                setText(`hero-proof-title-${index + 1}`, item[0]);
+                setText(`hero-proof-copy-${index + 1}`, item[1]);
+            });
+            content.trustBadges.forEach((item, index) => setText(`trust-badge-${index + 1}`, item));
+            setText('hero-security-label', content.heroSecurityLabel);
+            setText('hero-security-title', content.heroSecurityTitle);
+            setText('hero-status-label', content.heroStatusLabel);
+            setText('hero-status-title', content.heroStatusTitle);
+            content.heroStatusItems.forEach((item, index) => setText(`hero-status-item-${index + 1}`, item));
+            content.stats.forEach((item, index) => setText(`stat-label-${index + 1}`, item));
+
+            setText('services-title', content.servicesTitle);
+            setText('services-kicker', content.servicesKicker);
+            setText('services-intro', content.servicesIntro);
+            setText('services-side-note', content.servicesSideNote);
+            setText('confidence-pill-1', content.confidencePills[0]);
+            setText('confidence-pill-2', content.confidencePills[1]);
+            setText('confidence-title', content.confidenceTitle);
+            setText('confidence-copy', content.confidenceCopy);
+            content.confidenceCards.forEach((card, index) => {
+                setText(`confidence-card-title-${index + 1}`, card[0]);
+                setText(`confidence-card-copy-${index + 1}`, card[1]);
+            });
+            setText('badge-panel-label', content.badgePanelLabel);
+            setText('badge-panel-title', content.badgePanelTitle);
+            content.badgeItems.forEach((item, index) => {
+                setText(`badge-item-title-${index + 1}`, item[0]);
+                setText(`badge-item-copy-${index + 1}`, item[1]);
+            });
+
+            setText('about-preview-label', content.aboutPreviewLabel);
+            setText('about-preview-title', content.aboutPreviewTitle);
+            setText('about-preview-copy', content.aboutPreviewCopy);
+            content.aboutPreviewChecks.forEach((item, index) => setText(`about-preview-check-${index + 1}`, item));
+            setHTML('about-preview-btn', `${content.aboutPreviewBtn}`);
+
+            setText('testimonials-label', content.testimonialsLabel);
+            setText('testimonials-title', content.testimonialsTitle);
+            content.testimonialCopies.forEach((item, index) => setText(`testimonial-copy-${index + 1}`, item));
+            content.testimonialLocations.forEach((item, index) => setText(`testimonial-location-${index + 1}`, item));
+
+            setText('faq-kicker', content.faqKicker);
+            setText('faq-title', content.faqTitle);
+            content.faqItems.forEach((item, index) => {
+                setText(`faq-question-${index + 1}`, item[0]);
+                setText(`faq-answer-${index + 1}`, item[1]);
+            });
+
+            setText('about-title', content.aboutTitle);
+            setText('about-quote', content.aboutQuote);
+            setHTML('about-copy', content.aboutCopy);
+            content.aboutCards.forEach((item, index) => {
+                setText(`about-card-title-${index + 1}`, item[0]);
+                setText(`about-card-copy-${index + 1}`, item[1]);
+            });
+
+            setHTML('group-back-btn', content.groupBackBtn);
+            setHTML('detail-back-btn', content.detailBackBtn);
+            setText('detail-section-title-1', content.detailSectionTitles[0]);
+            setText('detail-section-title-2', content.detailSectionTitles[1]);
+            setText('detail-whatsapp-btn', content.detailWhatsAppBtn);
+            setText('detail-form-btn', content.detailFormBtn);
+
+            setText('contact-kicker', content.contactKicker);
+            setText('contact-title', content.contactTitle);
+            setText('contact-copy', content.contactCopy);
+            setText('contact-side-note', content.contactSideNote);
+            setText('contact-card-title-1', content.contactCards[0]);
+            setText('contact-card-copy-1', content.contactCards[1]);
+            setText('contact-card-title-2', content.contactCards[2]);
+            setText('contact-map-label', content.contactCards[3]);
+            setPlaceholder('contact-input-name', content.contactPlaceholders[0]);
+            setPlaceholder('contact-input-phone', content.contactPlaceholders[1]);
+            setPlaceholder('contact-input-email', content.contactPlaceholders[2]);
+            setPlaceholder('contact-input-message', content.contactPlaceholders[3]);
+            content.contactOptions.forEach((item, index) => setText(`contact-option-${index}`, item));
+            setText('contact-submit-btn', content.contactSubmitBtn);
+
+            setText('footer-copy', content.footerCopy);
+            setText('footer-services-title', content.footerServicesTitle);
+            content.footerServiceLinks.forEach((item, index) => setText(`footer-service-link-${index + 1}`, item));
+            setText('footer-diff-title', content.footerDiffTitle);
+            content.footerDiffLinks.forEach((item, index) => setText(`footer-diff-link-${index + 1}`, item));
+            setHTML('footer-copyright', content.footerCopyright);
+            setText('footer-privacy', content.footerPrivacy);
+            setText('footer-terms', content.footerTerms);
+            setText('services-title', content.servicesTitle);
+
+            updateLanguageButtons();
+        }
 
         function changeLanguage(lang) {
             currentLang = lang;
+            renderStaticContent();
+            renderServiceMenus();
+            renderHome();
 
-            const uiTexts = {
-                pt: { heroTitle: 'Sua ponte segura para <span class="text-blue-600">serviços globais.</span>', heroSub: 'Simplificamos processos burocráticos, consulares e documentais para brasileiros e latinos com agilidade de despachante e seriedade consultiva.', srvTitle: 'Como podemos ajudar hoje?' },
-                en: { heroTitle: 'Your secure bridge for <span class="text-blue-600">global services.</span>', heroSub: 'We simplify bureaucratic, consular, and document processes for immigrants with speed and consulting seriousness.', srvTitle: 'How can we help today?' },
-                es: { heroTitle: 'Tu puente seguro para <span class="text-blue-600">servicios globales.</span>', heroSub: 'Simplificamos trámites burocráticos, consulares y documentales para inmigrantes con agilidad y seriedad.', srvTitle: '¿Cómo podemos ayudarte hoy?' }
-            };
-
-            if (document.getElementById('hero-title')) document.getElementById('hero-title').innerHTML = uiTexts[lang].heroTitle;
-            if (document.getElementById('hero-sub')) document.getElementById('hero-sub').innerHTML = uiTexts[lang].heroSub;
-
-            const srvHeading = document.querySelector('#home h2');
-            if (srvHeading) srvHeading.innerText = uiTexts[lang].srvTitle;
-
-            if (!document.getElementById('home').classList.contains('hidden-section')) renderHome();
             if (!document.getElementById('group-detail').classList.contains('hidden-section')) {
-                renderGroupDetail('consular');
-                navigateTo('home');
+                renderGroupDetail(currentGroupId);
+            }
+
+            if (!document.getElementById('service-detail').classList.contains('hidden-section')) {
+                renderServiceDetail(currentGroupId, currentServiceIndex);
             }
         }
 
@@ -673,8 +1700,40 @@
             });
         }
 
+        function goBackToGroup() {
+            renderGroupDetail(currentGroupId);
+        }
+
+        function renderServiceMenus() {
+            const desktopContainer = document.getElementById('desktop-services-menu');
+            const mobileContainer = document.getElementById('mobile-services-menu');
+
+            if (desktopContainer) {
+                desktopContainer.innerHTML = appData[currentLang].serviceGroups.map(group => `
+                    <a href="#" onclick="renderGroupDetail('${group.id}')" class="service-menu-pill">
+                        <i class="fa-solid ${group.icon}"></i>
+                        <span>${group.title}</span>
+                    </a>
+                `).join('');
+            }
+
+            if (mobileContainer) {
+                mobileContainer.innerHTML = appData[currentLang].serviceGroups.map(group => `
+                    <a href="#" onclick="renderGroupDetail('${group.id}'); toggleMobileMenu()" class="flex items-center justify-between rounded-2xl border border-slate-200 bg-slate-50 px-4 py-4 text-base font-bold text-slate-800">
+                        <span class="flex items-center gap-3">
+                            <i class="fa-solid ${group.icon} text-blue-600"></i>
+                            <span>${group.title}</span>
+                        </span>
+                        <i class="fa-solid fa-arrow-right text-sm text-blue-600"></i>
+                    </a>
+                `).join('');
+            }
+        }
+
         function renderHome() {
             const container = document.getElementById('service-groups-container');
+            const content = uiContent[currentLang];
+            setText('services-title', content.servicesTitle);
             container.innerHTML = '';
             appData[currentLang].serviceGroups.forEach(group => {
                 container.innerHTML += `
@@ -685,7 +1744,7 @@
                         <h3 class="text-2xl font-bold mb-4 text-slate-800">${group.title}</h3>
                         <p class="text-slate-500 text-sm leading-relaxed mb-8 flex-grow">${group.desc}</p>
                         <span class="text-blue-600 font-bold text-sm inline-flex items-center group-hover:translate-x-3 transition-transform">
-                            Conhecer Serviços <i class="fa-solid fa-arrow-right ml-2"></i>
+                            ${content.serviceCardCta} <i class="fa-solid fa-arrow-right ml-2"></i>
                         </span>
                     </div>
                 `;
@@ -693,14 +1752,15 @@
         }
 
         function renderGroupDetail(groupId) {
+            currentGroupId = groupId;
             const group = appData[currentLang].serviceGroups.find(g => g.id === groupId);
             document.getElementById('current-group-title').innerText = group.title;
             document.getElementById('current-group-desc').innerText = group.desc;
             const container = document.getElementById('services-list-container');
             container.innerHTML = '';
-            group.services.forEach(serv => {
+            group.services.forEach((serv, index) => {
                 container.innerHTML += `
-                    <div class="bg-slate-50 p-8 rounded-3xl border border-slate-100 hover:bg-white hover:shadow-lg transition cursor-pointer" onclick="renderServiceDetail('${groupId}', '${serv.name}')">
+                    <div class="bg-slate-50 p-8 rounded-3xl border border-slate-100 hover:bg-white hover:shadow-lg transition cursor-pointer" onclick="renderServiceDetail('${groupId}', ${index})">
                         <h4 class="font-bold text-xl mb-2 text-slate-800">${serv.name}</h4>
                         <p class="text-xs text-blue-600 font-bold uppercase tracking-widest">${serv.sub}</p>
                     </div>
@@ -709,9 +1769,11 @@
             navigateTo('group-detail');
         }
 
-        function renderServiceDetail(groupId, serviceName) {
+        function renderServiceDetail(groupId, serviceIndex) {
+            currentGroupId = groupId;
+            currentServiceIndex = serviceIndex;
             const group = appData[currentLang].serviceGroups.find(g => g.id === groupId);
-            const serv = group.services.find(s => s.name === serviceName);
+            const serv = group.services[serviceIndex];
             document.getElementById('detail-title').innerText = serv.name;
             document.getElementById('detail-subtitle').innerText = serv.sub;
             document.getElementById('detail-about').innerText = serv.about;
@@ -720,6 +1782,8 @@
         }
 
         window.onload = () => {
+            renderStaticContent();
+            renderServiceMenus();
             renderHome();
 
             window.addEventListener('scroll', () => {
@@ -739,7 +1803,7 @@
 
         document.getElementById('contactForm').onsubmit = (e) => {
             e.preventDefault();
-            alert('Recebemos sua mensagem! Nossa equipe entrará em contato em breve via WhatsApp ou E-mail.');
+            alert(uiContent[currentLang].contactAlert);
         };
     </script>
 </body>
