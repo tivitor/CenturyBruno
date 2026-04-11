@@ -486,6 +486,8 @@
             justify-content: center;
             align-self: start;
             min-width: 0;
+            overflow: hidden;
+            border-radius: 1.25rem;
         }
 
         .hero-media::before {
@@ -503,11 +505,10 @@
             width: 100%;
             max-width: none;
             height: min(72vh, 43rem);
-            object-fit: contain;
-            object-position: center top;
+            object-fit: cover;
+            object-position: center center;
             display: block;
             background: transparent;
-            border-radius: 1.25rem;
             box-shadow: 0 20px 45px rgba(15, 23, 42, 0.1);
         }
 
